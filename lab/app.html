@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deterministic Visual Identifier v0.15</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="symbol style.css">
+    <script defer src="param.js"></script>
+    <script defer src="main.js"></script>
+    <script defer src="encode.js"></script>
+    <script defer src="edit.js"></script>
+    <script defer src="encode bitcoin browserified.js"></script>
+  </head>
+  <body>
+
+
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Symbol
+            </th>
+            <th>
+              Number
+            </th>
+            <th>
+              Char
+            </th>
+            <th>
+              Color
+            </th>
+            <th>
+              Style
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+    </section>
+    <section>
+
+    
+     
+      <label>
+        Hex list
+        <br />
+        <select>
+        </select>
+      </label>
+      <br />
+      <br />
+
+      <fieldset disabled>
+
+
+      <label>
+        Input data<br />
+        <input type="text" />
+      </label>
+
+
+        <br />
+        <output id="msg"></output>
+
+        <br />
+        <br />
+
+        Mode
+        <div>
+        <label>
+          Hex
+          <input type="radio" name="mode" checked data-mode="HEX" />
+        </label>
+        <label>
+          ASCII
+          <input type="radio" name="mode" data-mode="ASCII" />
+        </label>
+        <label>
+          Bitcoin
+          <input type="radio" name="mode" data-mode="BITCOIN" />
+        </label>
+        </div>
+
+
+      
+      <br />
+      <br />
+      <div id="symbolsInHtml"></div>
+      <br />
+      <output id="hexValues"></output>
+      <br />
+      <br />
+      <output id="symbolsInText"></output>
+      <br />
+      <br />
+    <input type="button" value="Export" id="exportHexList" />
+      <br />
+      <br />
+
+
+      </fieldset>
+
+
+    </section>
+  </body>
+</html>
