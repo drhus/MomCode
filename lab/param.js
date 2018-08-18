@@ -2,30 +2,22 @@
 
 const HEXLIST_DIRECTORY = 'hexlist';
 const HEXLIST_NAMES = [
-  'test',
-  '102 cleared',
-  '103',  
-  'new',
+  'Momcode-209_Hus',
+  'Momcode-test',
+  'Momcode-test2',
+  'Momcode-empty-set',
 ];
 
 const AUTO_COLORS = [
- 'white',
- 'silver',
- 'gray',
- 'black',
  'red',
- 'maroon',
- 'yellow',
- 'olive',
- 'lime',
- 'green',
- 'aqua',
- 'teal',
- 'blue',
- 'navy',
- 'fuchsia',
- 'purple',
  'orange',
+ 'yellow',
+ 'green',
+ 'blue',
+ 'purple',
+ 'black',
+ 'white',
+ 'gray', 
 ];
 
 const ABSENT_SYMBOL_TEXT = '{\u2639}';
