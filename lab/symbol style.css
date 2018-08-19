@@ -1,12 +1,12 @@
-.underline {
+.u, .underline {
   text-decoration-line: underline;
 }
 
-.strikethrough {
+.s, .strikethrough {
   text-decoration-line: line-through;
 }
 
-.overline {
+.o, .overline {
   text-decoration-line: overline;
 }
 
@@ -16,4 +16,43 @@
 
 .italic {
   font-style: italic;
+}
+/* colors */
+.r, .red {
+	color: red;
+}
+
+.o, .orange {
+	color: orange;
+}
+
+.y, .yellow {
+	color: yellow;
+}
+
+.g, .green {
+	color: green;
+}
+
+.b, .blue {
+	color:blue;
+}
+
+.p, .purple {
+	color: purple;
+}
+
+.w, .white {
+	color: white;
+	background-color: #000;
+}
+
+.b, .black {
+	color: black;
+	background-color: #FFF;
+}
+
+.gr, .gray {
+	color: gray;
+	background-color: #FFF;
 }

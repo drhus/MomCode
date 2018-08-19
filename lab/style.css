@@ -74,7 +74,7 @@ section > fieldset {
 }
 
 fieldset input[type=text] {
-  width: 300px;
+  width: 400px;
 }
 
 
@@ -96,3 +96,10 @@ td:nth-child(n + 3):hover {
   background-color: lightgrey;
   cursor: pointer;
 }
+
+#symbolsInHtml {
+	text-align: center;
+	font-size: 40px;
+}
+
+
