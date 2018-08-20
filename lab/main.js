@@ -35,7 +35,7 @@ for (const hexListName of HEXLIST_NAMES) {
   document.head.append(scriptElem);
 }
 
-
+/*
 {
 // generate styles for auto colors
 const styles = [];
@@ -50,7 +50,7 @@ const styleElem = document.createElement('style');
 styleElem.textContent = styles.join('');
 document.head.append(styleElem);
 }
-
+*/
 
 
 hexListSelect.addEventListener('change', function() {
@@ -89,16 +89,24 @@ inputElem.addEventListener('input', function() {
   processInputStringChange();
 });
 
+
+// todo move all possible future autositching logic to function above and rename this to something like encodeUserInput()
 function processInputStringChange() {
   switch(mode) {
     case 'HEX':
+    /*
       if (!inputStr.startsWith('0x')) {
         showMsg('string must start from 0x');
         clearOutputs();
         return;
       }
+    */
+      inputStrToEncode = inputStr.toLowerCase();
 
-      inputStrToEncode = inputStr.slice(2);
+      // 0x is not mandatory
+      if (inputStr.startsWith('0x')) {
+        inputStrToEncode = inputStrToEncode.slice(2);
+      }
 
       if (inputStrToEncode.length === 0) {
         showMsg('empty string');
@@ -107,7 +115,7 @@ function processInputStringChange() {
       }
 
       if (inputStrToEncode.length % 2 !== 0) {
-        showMsg('misformatted string');
+        showMsg('string length must be even');
         clearOutputs();
         return;
       }
@@ -160,7 +168,7 @@ function processInputStringChange() {
 //  showMsg(inputStrToEncode);
   clearMsg();
 
-  l(inputStrToEncode);
+  l('inputStrToEncode', inputStrToEncode);
   const { hexValues, symbolsInText, symbolsInHtml } = encodeHexString(inputStrToEncode);
   hexValuesOutput.value = hexValues.join(' ');
   symbolsInTextOutput.value = symbolsInText.join(',');
