@@ -1,7 +1,7 @@
 # MomCode
-_Human-friendly Visualization for Large Identifier_
+_Deterministic Human-friendly Visualization for Large Identifier_
 
-Momcode takes a large identifier _(public-key or wallet address)_ and generates a human friendly representation in visual form.  
+Momcode takes a large identifier _(public-key, wallet address or hex hash)_ and generates a human friendly representation in visual form.  
 * Distinguishable, 
 * Transferable,
 * Memorizable, 
