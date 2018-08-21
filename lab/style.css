@@ -3,71 +3,31 @@ _* {
 }
 
 
-
-body, html {
-  height: 100%;
-}
-
-/*
-table {
-  table-layout: fixed;
-  width: 500px;
-}
-
-tbody{
-  display:block;
-  overflow:auto;
-  height:200px;
-  width:100%;
-}
-thead tr{
-  display:block;
-}
-*/
-
-
-section {
-  overflow: auto;
-  padding: 5px;
-}
-/*
-_body {
-  overflow: hidden;
-  _margin: 0;
-}
-
-thead, tbody {
-display: block;
-}
-
-tbody {
-  height: 600px;
-    overflow-y: auto;
-}
-*/
-
-
-
-
-
 body {
   display: flex;
   margin: 0;
 }
 
+
+section:first-child {
+  margin-right: 30px;
+}
+
+
 table {
   border-collapse: collapse;
-  _margin-right: 50px;
-  min-width: 500px;
+  _min-width: 500px;
 }
 
 th, td {
-  border: 1px solid grey;
+  border: 1px solid gray;
   text-align: center;
   padding: 3px;
+  min-width: 20px;
+  min-height: 20px;
 }
 
-section > fieldset {
+fieldset {
   border: none;
   margin: 0;
   padding: 0;
@@ -90,16 +50,20 @@ input[type=radio] {
 }
 
 
-
-
-td:nth-child(n + 3):hover {
+tbody:not(.empty) td:hover {
   background-color: lightgrey;
   cursor: pointer;
 }
 
-#symbolsInHtml {
-	text-align: center;
-	font-size: 40px;
+
+#msg {
+  color: gray;
 }
 
 
+#symbolsInHtml {
+  text-align: center;
+  font-size: 40px;
+  border: 1px solid gray;
+  height: 60px;
+}
