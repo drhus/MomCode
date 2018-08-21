@@ -6,6 +6,6 @@ Momcode takes a large identifier _(public-key, wallet address or hex hash)_ and 
 * Transferable,
 * Memorizable, 
 * Simple for comparing and matching, 
-* and easily transmittable via a voice channel.
+* and Easily transmittable via a voice channel.
 
 It encodes a hexadecimal string, into 'Colorful Symbols', using 6 basic colors and a set of universally recognizable symbols such as triangles, squares, circles, stars, hearts, arrows,. etc
