@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Deterministic Visual Identifier v0.25</title>
+    <title>Deterministic Visual Identifier v0.3</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="symbol style.css">
     <script defer src="param.js"></script>
-    <script defer src="main.js"></script>
+    <script defer src="convert.js"></script>
     <script defer src="encode.js"></script>
-    <script defer src="encode bitcoin browserified.js"></script>
+    <script defer src="main.js"></script>
+    <script defer src="bitcoin browserified.js"></script>
+
+    <script src="lib/base64.min.js"></script>
   </head>
   <body>
     <section>
-      <div>
+      <fieldset disabled>
         <input type="button" value="Export" id="exportHexList" />
-      <div>
+        <input type="button" value="Generate table URL" id="generateTableURL" />
+        <input type="button" value="Generate view URL" id="generateViewURL" />
+        <br />
+        <br />
+        <div id="hexListProps">
+          <label>
+            Name<br />
+            <input type="text" id="hexListName" data-prop-name="name" />
+          </label>
+          <br />
+          <br />
+          <label>
+            Author<br />
+            <input type="text" id="hexListAuthor" data-prop-name="author" />
+          </label>
+          <br />
+          <br />
+          <label>
+            Comment<br />
+            <input type="text" id="hexListComment" data-prop-name="comment" />
+          </label>
+          <br />
+          <br />
+        </div>
+      </fieldset>
       <table>
         <tbody class="empty">
           <tr>
@@ -117,26 +144,26 @@
       <fieldset disabled>
         <label>
           String<br />
-          <input type="text" />
+          <input type="text" id="inputString" />
         </label>
         <br />
         <output id="msg"></output>
         <br />
         <br />
         Mode
-        <div>
-        <label>
-          Hex
-          <input type="radio" name="mode" checked data-mode="HEX" />
-        </label>
-        <label>
-          ASCII
-          <input type="radio" name="mode" data-mode="ASCII" />
-        </label>
-        <label>
-          Bitcoin
-          <input type="radio" name="mode" data-mode="BITCOIN" />
-        </label>
+        <div id="mode">
+          <label>
+            Hex
+            <input type="radio" name="mode" checked data-mode="HEX" />
+          </label>
+          <label>
+            ASCII
+            <input type="radio" name="mode" data-mode="ASCII" />
+          </label>
+          <label>
+            Bitcoin
+            <input type="radio" name="mode" data-mode="BITCOIN" />
+          </label>
         </div>
         <br />
         Output

@@ -1,49 +1,111 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Deterministic Visual Identifier v0.15</title>
+    <title>Deterministic Visual Identifier v0.25</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="symbol style.css">
     <script defer src="param.js"></script>
     <script defer src="main.js"></script>
     <script defer src="encode.js"></script>
-    <script defer src="edit.js"></script>
     <script defer src="encode bitcoin browserified.js"></script>
   </head>
   <body>
-
-
     <section>
+      <div>
+        <input type="button" value="Export" id="exportHexList" />
+      <div>
       <table>
-        <thead>
+        <tbody class="empty">
           <tr>
-            <th>
-              Symbol
-            </th>
-            <th>
-              Hex
-            </th>
-            <th>
-              Char
-            </th>
-            <th>
-              Color
-            </th>
-            <th>
-              Style
-            </th>
+            <th></th>
+            <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th>
+            <th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th>
           </tr>
-        </thead>
-        <tbody>
+          <tr>
+            <th>0</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td></td><td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>8</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>9</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>A</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>B</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>C</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>D</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>E</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th>F</th>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
         </tbody>
       </table>
-
     </section>
     <section>
-
-    
-     
       <label>
         Hex list
         <br />
@@ -52,22 +114,15 @@
       </label>
       <br />
       <br />
-
       <fieldset disabled>
-
-
-      <label>
-        Input data<br />
-        <input type="text" />
-      </label>
-
-
+        <label>
+          String<br />
+          <input type="text" />
+        </label>
         <br />
         <output id="msg"></output>
-
         <br />
         <br />
-
         Mode
         <div>
         <label>
@@ -83,27 +138,19 @@
           <input type="radio" name="mode" data-mode="BITCOIN" />
         </label>
         </div>
-
-
-      
-      <br />
-      <br />
-      <div id="symbolsInHtml"></div>
-      <br />
-      <output id="hexValues"></output>
-      <br />
-      <br />
-      <output id="symbolsInText"></output>
-      <br />
-      <br />
-    <input type="button" value="Export" id="exportHexList" />
-      <br />
-      <br />
-
-
+        <br />
+        Output
+        <div id="symbolsInHtml"></div>
+        <br />
+        Raw encoded hex output
+        <br />
+        <output id="symbolsInText"></output>
+        <br />
+        <br />
+        Raw hex output
+        <br />
+        <output id="hexValues"></output>
       </fieldset>
-
-
     </section>
   </body>
 </html>

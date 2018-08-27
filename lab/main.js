@@ -7,13 +7,13 @@ const hexLists = {};
 let hexList; // selected hexlist
 let inputStr = '0x';
 let inputStrToEncode;
-let mode = DEFAULT_MODE;
+let mode = APP_DEFAULT_MODE;
 
 
 const hexListTableBody = document.querySelector('table').tBodies[0];
 const hexListSelect = document.querySelector('select');
 
-const inputElem = document.querySelector('fieldset input');
+const inputElem = document.querySelector('#inputString');
 const msgOutput = document.querySelector('#msg');
 
 const hexValuesOutput = document.querySelector('#hexValues');
@@ -34,28 +34,64 @@ for (const hexListName of HEXLIST_NAMES) {
 
 
 
-// check for values in URL
+// get values from URL
 {
 const url = new URL(location.href);
 let urlMode = url.searchParams.get('mode');
 if (urlMode !== null) {
+  l(urlMode);
   urlMode = urlMode.toUpperCase();
   if (MODES.includes(urlMode)) {
     mode = urlMode;
     selectMode();
   }
   else {
-    mode = DEFAULT_MODE;
+    mode = APP_DEFAULT_MODE;
   }
 }
 
 const urlInput = url.searchParams.get('input');
 if (urlInput !== null) {
+  l(urlInput);
   inputStr = urlInput;
   inputElem.value = inputStr;
 }
 
-l(urlMode, urlInput);
+let urlHexList = url.searchParams.get('hexListV1');
+if (urlHexList !== null) {
+  l(urlHexList, urlHexList.length);
+
+  urlHexList = Base64.decode(urlHexList);
+  l(urlHexList);
+  l(urlHexList.length);
+
+//  l(b64dec === url);
+
+  // decode
+  const urlSymbols = urlHexList.split(HEXLIST_URL_SYMBOL_DELIMITER);
+  l(urlSymbols, urlSymbols.length);
+
+  const hexListFromUrl = {
+    data: {},
+  };
+//  for (let n = 0x00; n <= 0xff; ++n) {
+//    hexListFromUrl[numToHex(n)] = urlSymbolToObjSymbol(urlSymbol[n]);
+//  }
+  const additionalProps = urlSymbols.splice(-3);
+  l(additionalProps);
+  urlSymbols.forEach((urlSymbol, i) => hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
+  l(hexListFromUrl);
+
+  // parse additional props
+  for (const [ind, propName] of HEXLIST_ADDITIONAL_PROPS.entries()) {
+//    const propVal = additionalProps[ind];
+//    if (propVal !== '') {
+    hexListFromUrl[propName] = additionalProps[ind];// propVal;
+//    }
+  };
+  addHexList(hexListFromUrl, additionalProps.name === undefined ? 'from URL' : `${additionalProps.name} (from URL)`);
+}
+
 }
 
 
@@ -63,9 +99,10 @@ l(urlMode, urlInput);
 
 hexListSelect.addEventListener('change', function() {
   hexList = hexLists[this.value];
-  showHexListInTable();
+  showHexList();
 
-  document.querySelector('fieldset').disabled = false;
+  document.querySelectorAll('fieldset').forEach(fs => fs.disabled = false);
+
   inputElem.value = inputStr;
   inputElem.focus();
   encodeUserInput();
@@ -74,7 +111,7 @@ hexListSelect.addEventListener('change', function() {
 
 
 
-document.querySelector('fieldset div').addEventListener('input', processModeChange);
+document.querySelector('#mode').addEventListener('input', processModeChange);
 
 function processModeChange() {
   mode = document.querySelector('input[type=radio]:checked').dataset.mode;
@@ -169,16 +206,65 @@ function encodeUserInput() {
 
 
 
-// add hexlist to hexlist storage and to <select>
-function addHexList(hexList) {
-  const hexListName = document.currentScript.dataset.name;
+// add hexlist from array to hexlist storage and to <select>
+function addArrayHexList(arrayHexList) {
+//  const hexListName = document.currentScript.dataset.name;
 
-  // convert hexlist numbers to lowercase
-  const lowerCasedHexList = {};
-  for (const num in hexList) {
-    lowerCasedHexList[num.toLowerCase()] = hexList[num];
+  // convert hexlist to more usable form
+  const objHexList = {
+    data: {},
+  };
+  for (const propName of HEXLIST_ADDITIONAL_PROPS) {
+//    const propVal = arrayHexList[propName];
+//    if (propVal !== undefined) {
+      objHexList[propName] = arrayHexList[propName] || '';//propVal;
+//    }
+  };
+//  let arraySymbol;
+//  let tmp;
+  for (const hexNum in arrayHexList.data) {
+//    arraySymbol = hexList[num];
+
+//    const objSymbol = arraySymbolToObjSymbol(arraySymbol);
+/*
+    const objSymbol = {
+      char: symbol[0],
+    }
+
+    tmp = symbol[1];
+    if (!(tmp === '' || tmp === undefined)) {
+      objSymbol.color = tmp;
+    }
+
+    tmp = symbol[2];
+    if (!(tmp === '' || tmp === undefined)) {
+      objSymbol.styles = tmp.split(SYMBOL_STYLE_DELIMITER);
+    }*/
+
+    // remove empty color and styles
+//    symbol = symbol.map(el => el === '' ? undefined : el);
+
+    objHexList.data[hexNum.toLowerCase()] = arraySymbolToObjSymbol(arrayHexList.data[hexNum]);
   }
-  hexLists[hexListName] = lowerCasedHexList;
+
+  addHexList(objHexList, document.currentScript.dataset.name);
+
+/*
+  hexLists[hexListName] = normalizedHexList;
+
+  const option = document.createElement('option');
+  option.textContent = hexListName;
+  hexListSelect.options.add(option);
+  hexListSelect.selectedIndex = -1;
+*/
+}
+
+
+
+
+function addHexList(hexList, hexListName) {
+
+  hexLists[hexListName] = hexList;
 
   const option = document.createElement('option');
   option.textContent = hexListName;
@@ -189,17 +275,23 @@ function addHexList(hexList) {
 
 
 
-function showHexListInTable() {
+function showHexList() {
   let rowElem;
   let symbol;
+  const hexListData = hexList.data;
   for (let row = 0; row <= 15; ++row) {
     rowElem = hexListTableBody.rows[row + 1];
     for (let col = 0; col <= 15; ++col) {
-      symbol = hexList[numToHex(row * 16 + col)];
-      rowElem.cells[col + 1].innerHTML = (symbol === undefined) ? '' : getHtmlForSymbol(symbol);
+      symbol = hexListData[numToHex(row * 16 + col)];
+      rowElem.cells[col + 1].innerHTML = symbol === undefined ? '' : symbolToHtml(symbol);
     }
   }
   hexListTableBody.classList.remove('empty');
+
+  // show additional props
+  for (const propName of HEXLIST_ADDITIONAL_PROPS) {
+    document.querySelector(`input[data-prop-name=${propName}]`).value = hexList[propName] || '';
+  };
 }
 
 
@@ -253,56 +345,72 @@ hexListTableBody.addEventListener('click', function({ target: elem }) {
 
   const cellHexNum = numToHex((elem.parentElement.rowIndex - 1) * 16 + (elem.cellIndex - 1));
 
-  let symbolInText = prompt('Symbol data:', hexList[cellHexNum]);
-  if (symbolInText === null || symbolInText.trim().length === 0) {
+  const oldSymbol = hexList.data[cellHexNum] || {};
+  l(oldSymbol);
+  const symbolInString = prompt('Symbol data:', symbolToString(oldSymbol));
+  if (symbolInString === null || symbolInString.trim().length === 0) {
     return;
   }
 
-  l(symbolInText);
-  const symbol = symbolInText.split(',');
-  l(symbol);
-  if (symbol.length < 2) {
-    alert('Char and color are required.');
+  l(symbolInString);
+  const arraySymbol = symbolInString.split(',');
+  l(arraySymbol);
+  const newSymbol = arraySymbolToObjSymbol(arraySymbol);
+  l(newSymbol);
+
+  if (newSymbol.char === '') {
+    alert('Char is required!');
     return;
   }
 
-  if (symbol.length === 3 && symbol[2] === '') {
-    symbol.splice(-1);
-  }
+//  if (symbol.length === 3 && symbol[2] === '') {
+//    symbol.splice(-1);
+//  }
 
-  // todo more checks
-
-  hexList[cellHexNum] = symbol;
-  elem.innerHTML = getHtmlForSymbol(symbol);
+  hexList.data[cellHexNum] = newSymbol;
+  elem.innerHTML = symbolToHtml(newSymbol);
   encodeUserInput();
 });
 
 
 
 
-// export
+// export hexlist
 document.querySelector('#exportHexList').addEventListener('click', function() {
   const lines = [
     `// exported at ${new Date().toLocaleString()}`,
     "'use strict';",
     '',
-    'addHexList({',
+    'addArrayHexList({',
   ];
+
+  for (const propName of HEXLIST_ADDITIONAL_PROPS) {
+    if (hexList[propName] !== '') {
+      lines.push(`  ${propName}: '${hexList[propName]}',`);
+    }
+  };
+
+  lines.push('  data: {');
+
   let hexNum;
   let symbol;
+  let colorPart;
   let stylesPart;
-
+  const hexListData = hexList.data;
   for (let n = 0x00; n <= 0xff; ++n) {
     hexNum = numToHex(n);
-    symbol = hexList[hexNum];
+    symbol = hexListData[hexNum];
     if (symbol === undefined) {
       continue;
     }
 
-    stylesPart = (symbol[2] === undefined) ? '' : `, '${symbol[2]}'`;
-    lines.push(`  '${hexNum}': [ '${symbol[0]}', '${symbol[1]}'${stylesPart} ],`);
+    // todo make more beautiful
+    colorPart = (symbol.color === undefined) ? '' : "'" + symbol.color + "'";
+    stylesPart = (symbol.styles === undefined) ? '' : "'" + symbol.styles.join(SYMBOL_STYLE_DELIMITER) + "' ";
+    lines.push(`    '${hexNum}': [ '${symbol.char}', ${colorPart}, ${stylesPart}],`);
   }
 
+  lines.push('  },');
   lines.push('});');
 
   // download file
@@ -311,6 +419,37 @@ document.querySelector('#exportHexList').addEventListener('click', function() {
   a.href = URL.createObjectURL(new Blob([ lines.join('\n') ]));
   a.click();
   URL.revokeObjectURL(a.href);
+});
+
+
+
+
+// changing hexlist props
+document.querySelector('#hexListProps').addEventListener('change', function(event) {
+  const inputElem = event.target;
+  hexList[inputElem.dataset.propName] = inputElem.value;
+});
+
+
+
+
+document.querySelector('#generateTableURL').addEventListener('click', function() {
+  const urlObj = new URL(location.href);
+  urlObj.searchParams.delete('mode');
+  urlObj.searchParams.delete('input');
+  urlObj.searchParams.set('hexListV1', encodeHexListToUrlString());
+  window.open(decodeURI(urlObj.href));
+});
+
+
+
+
+document.querySelector('#generateViewURL').addEventListener('click', function() {
+  const urlObj = new URL(location.href);
+  urlObj.searchParams.set('mode', mode);
+  urlObj.searchParams.set('input', inputStr);
+  urlObj.searchParams.set('hexListV1', encodeHexListToUrlString());
+  window.open(decodeURI(urlObj.href));
 });
 
 

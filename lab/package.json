@@ -6,6 +6,6 @@
     "browserify": "^16.2.2"
   },
   "scripts": {
-    "br": "browserify \"encode bitcoin.js\" > \"encode bitcoin browserified.js\""
+    "br": "browserify \"bitcoin.js\" > \"bitcoin browserified.js\""
   }
 }

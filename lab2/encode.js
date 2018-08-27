@@ -1,22 +1,14 @@
 'use strict';
 
-
-
-
-
 function getHtmlForSymbol(symbol) {
-  const classes = [ symbol[1] ];
+  const classes = [symbol[1]];
   let additionalClasses = symbol[2];
-  if (additionalClasses !== undefined) {
+  if (!(additionalClasses === undefined || additionalClasses === '')) {
     classes.push(...additionalClasses.split('-'));
   }
 
   return `<span class="${classes.join(' ')}">${symbol[0]}</span>`;
 }
-
-
-
-
 
 
 
@@ -53,6 +45,8 @@ function encodeHexString(hexString) {
 function strToHexStr(str) {
   return str.split('').map(char => char.charCodeAt().toString(16)).join('');
 }
+
+
 
 
 function numToHex(n) {

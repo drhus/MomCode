@@ -8,19 +8,7 @@ const HEXLIST_NAMES = [
   'Momcode-empty-set',
 ];
 
-const AUTO_COLORS = [
- 'red',
- 'orange',
- 'yellow',
- 'green',
- 'blue',
- 'purple',
- 'black',
- 'white',
- 'gray', 
-];
+const DEFAULT_MODE = 'HEX';
 
 const ABSENT_SYMBOL_TEXT = '{\u2639}';
 const ABSENT_SYMBOL_HTML = '<strong>\u2639</strong>';
-
-const EMPTY_SYMBOL = ['no char', 'no color'];

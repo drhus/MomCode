@@ -33,7 +33,7 @@ fieldset {
   padding: 0;
 }
 
-fieldset input[type=text] {
+#inputString {
   width: 400px;
 }
 

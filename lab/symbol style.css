@@ -13,10 +13,12 @@
   text-decoration-line: overline;
 }
 
+.l,
 .bold {
   font-weight: bold;
 }
 
+.i,
 .italic {
   font-style: italic;
 }
@@ -59,7 +61,7 @@
   background-color: #000;
 }
 
-.b,
+.k,
 .black {
   color: black;
   background-color: #FFF;

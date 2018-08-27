@@ -1,23 +1,19 @@
 'use strict';
 
 const l = console.log;
-//const bs58check = require('bs58check')
 
-
+const MODES = [ 'HEX', 'ASCII', 'BITCOIN' ];
 const hexLists = {};
 let hexList; // selected hexlist
 let inputStr = '0x';
 let inputStrToEncode;
-//let editingCell = null;
-//let isCellEdited;
-//let isChangeEventFired;
-let mode = 'HEX';
+let mode = DEFAULT_MODE;
 
 
-const hexListTable = document.querySelector('table').tBodies[0];
+const hexListTableBody = document.querySelector('table').tBodies[0];
 const hexListSelect = document.querySelector('select');
 
-const inputElem = document.querySelector('input');
+const inputElem = document.querySelector('fieldset input');
 const msgOutput = document.querySelector('#msg');
 
 const hexValuesOutput = document.querySelector('#hexValues');
@@ -35,22 +31,34 @@ for (const hexListName of HEXLIST_NAMES) {
   document.head.append(scriptElem);
 }
 
-/*
+
+
+
+// check for values in URL
 {
-// generate styles for auto colors
-const styles = [];
-for (const color of AUTO_COLORS) {
-  styles.push(`
-    .${color} {
-      color: ${color};
-    }
-  `);
+const url = new URL(location.href);
+let urlMode = url.searchParams.get('mode');
+if (urlMode !== null) {
+  urlMode = urlMode.toUpperCase();
+  if (MODES.includes(urlMode)) {
+    mode = urlMode;
+    selectMode();
+  }
+  else {
+    mode = DEFAULT_MODE;
+  }
 }
-const styleElem = document.createElement('style');
-styleElem.textContent = styles.join('');
-document.head.append(styleElem);
+
+const urlInput = url.searchParams.get('input');
+if (urlInput !== null) {
+  inputStr = urlInput;
+  inputElem.value = inputStr;
 }
-*/
+
+l(urlMode, urlInput);
+}
+
+
 
 
 hexListSelect.addEventListener('change', function() {
@@ -60,8 +68,7 @@ hexListSelect.addEventListener('change', function() {
   document.querySelector('fieldset').disabled = false;
   inputElem.value = inputStr;
   inputElem.focus();
-//  processModeChange();
-  processInputStringChange();
+  encodeUserInput();
 });
 
 
@@ -71,7 +78,7 @@ document.querySelector('fieldset div').addEventListener('input', processModeChan
 
 function processModeChange() {
   mode = document.querySelector('input[type=radio]:checked').dataset.mode;
-  processInputStringChange();
+  encodeUserInput();
 }
 
 
@@ -83,24 +90,18 @@ inputElem.addEventListener('input', function() {
   // auto change to HEX mode
   if (inputStr.startsWith('0x')) {
     mode = 'HEX';
-    document.querySelector('input[data-mode=HEX]').checked = true;
+    selectMode();
   }
 
-  processInputStringChange();
+  encodeUserInput();
 });
 
 
-// todo move all possible future autositching logic to function above and rename this to something like encodeUserInput()
-function processInputStringChange() {
+
+
+function encodeUserInput() {
   switch(mode) {
     case 'HEX':
-    /*
-      if (!inputStr.startsWith('0x')) {
-        showMsg('string must start from 0x');
-        clearOutputs();
-        return;
-      }
-    */
       inputStrToEncode = inputStr.toLowerCase();
 
       // 0x is not mandatory
@@ -110,19 +111,19 @@ function processInputStringChange() {
 
       if (inputStrToEncode.length === 0) {
         showMsg('empty string');
-        clearOutputs();
+        clearResults();
         return;
       }
 
       if (inputStrToEncode.length % 2 !== 0) {
         showMsg('string length must be even');
-        clearOutputs();
+        clearResults();
         return;
       }
 
       if (/[^\dabcdef]+/i.test(inputStrToEncode)) {
         showMsg('not a hex symbol in string');
-        clearOutputs();
+        clearResults();
         return;
       }
     break;
@@ -131,7 +132,7 @@ function processInputStringChange() {
     case 'ASCII':
       if (inputStr.length === 0) {
         showMsg('empty string');
-        clearOutputs();
+        clearResults();
         return;
       }
 
@@ -142,32 +143,22 @@ function processInputStringChange() {
     case 'BITCOIN':
       if (inputStr.length === 0) {
         showMsg('empty string');
-        clearOutputs();
+        clearResults();
         return;
       }
 
-//      n();
       try {
-        inputStrToEncode = encodeBitcoinAddress(inputStr);
+        inputStrToEncode = window.encodeBitcoinAddress(inputStr);
       }
       catch(err) {
         showMsg(err.message.toLowerCase());
-        clearOutputs();
+        clearResults();
         return;
       }
-
-//      l(inputStrToEncode);
-//      inputStrToEncode = inputStrToEncode.toString('hex');
-//      console.log(inputStrToEncode);
-
-//      inputStrToEncode = inputStrToEncode.slice(2, -8);
-//      l('_' + inputStrToEncode + '_');
     break;
   }
 
-//  showMsg(inputStrToEncode);
   clearMsg();
-
   l('inputStrToEncode', inputStrToEncode);
   const { hexValues, symbolsInText, symbolsInHtml } = encodeHexString(inputStrToEncode);
   hexValuesOutput.value = hexValues.join(' ');
@@ -178,9 +169,7 @@ function processInputStringChange() {
 
 
 
-// function is global, else hexlist scripts can't find it after browserify
 // add hexlist to hexlist storage and to <select>
-//window.addHexList = function(hexList) {
 function addHexList(hexList) {
   const hexListName = document.currentScript.dataset.name;
 
@@ -189,11 +178,7 @@ function addHexList(hexList) {
   for (const num in hexList) {
     lowerCasedHexList[num.toLowerCase()] = hexList[num];
   }
-
   hexLists[hexListName] = lowerCasedHexList;
-//  l(hexList)
-//  l(JSON.parse(JSON.stringify(hexList).toLowerCase()))
-
 
   const option = document.createElement('option');
   option.textContent = hexListName;
@@ -204,74 +189,23 @@ function addHexList(hexList) {
 
 
 
-
 function showHexListInTable() {
-  const htmls = [];
-
-  let hexNum;
+  let rowElem;
   let symbol;
-//  let styles;
-  for (let n = 0x00; n <= 0xff; ++n) {
-
-    hexNum = numToHex(n);//n.toString(16).padStart(2, '0');
-    symbol = hexList[hexNum];
-
-    // todo
-    if (symbol === undefined) {
-      htmls.push(`
-        <tr class="empty" data-num="${hexNum}">
-          <td></td>
-          <td>
-            ${hexNum}
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      `);
+  for (let row = 0; row <= 15; ++row) {
+    rowElem = hexListTableBody.rows[row + 1];
+    for (let col = 0; col <= 15; ++col) {
+      symbol = hexList[numToHex(row * 16 + col)];
+      rowElem.cells[col + 1].innerHTML = (symbol === undefined) ? '' : getHtmlForSymbol(symbol);
     }
-    else {
-//      styles = currSymbol[2] || '';
-  //    if (currChar.length === 3) {
-  //      styles = currChar
-  //    }
-      htmls.push(`
-        <tr data-num="${hexNum}">
-          <td>
-            ${getHtmlForSymbol(symbol)}
-          </td>
-          <td>
-            ${hexNum}
-          </td>
-          <td>
-            ${symbol[0]}
-          </td>
-          <td>
-            ${symbol[1]}
-          </td>
-          <td>
-            ${symbol[2] || ''}
-          </td>
-        </tr>
-      `);
-
-
-
-    }
-
-
   }
-
-  hexListTable.innerHTML = htmls.join('');
+  hexListTableBody.classList.remove('empty');
 }
 
 
 
 
-
-
-
-function clearOutputs() {
+function clearResults() {
   hexValuesOutput.value = '';
   symbolsInTextOutput.value = '';
   symbolsInHtmlOutput.innerHTML = '';
@@ -285,6 +219,8 @@ function showMsg(msg) {
 }
 
 
+
+
 function clearMsg() {
   msgOutput.value = '';
 }
@@ -292,10 +228,59 @@ function clearMsg() {
 
 
 
+function selectMode() {
+  document.querySelector(`input[data-mode=${mode}]`).checked = true;
+}
 
 
 
 
+// editing
+hexListTableBody.addEventListener('click', function({ target: elem }) {
+  // nothing to edit
+  if (hexListTableBody.classList.contains('empty')) {
+    return;
+  }
+
+  // headers are not editable
+  if (elem.nodeName === 'TH') {
+    return;
+  }
+
+  if (elem.nodeName === 'SPAN') {
+    elem = elem.parentElement;
+  }
+
+  const cellHexNum = numToHex((elem.parentElement.rowIndex - 1) * 16 + (elem.cellIndex - 1));
+
+  let symbolInText = prompt('Symbol data:', hexList[cellHexNum]);
+  if (symbolInText === null || symbolInText.trim().length === 0) {
+    return;
+  }
+
+  l(symbolInText);
+  const symbol = symbolInText.split(',');
+  l(symbol);
+  if (symbol.length < 2) {
+    alert('Char and color are required.');
+    return;
+  }
+
+  if (symbol.length === 3 && symbol[2] === '') {
+    symbol.splice(-1);
+  }
+
+  // todo more checks
+
+  hexList[cellHexNum] = symbol;
+  elem.innerHTML = getHtmlForSymbol(symbol);
+  encodeUserInput();
+});
+
+
+
+
+// export
 document.querySelector('#exportHexList').addEventListener('click', function() {
   const lines = [
     `// exported at ${new Date().toLocaleString()}`,
@@ -340,8 +325,6 @@ Object.defineProperty(window, 's', {
     l('inputStr', inputStr);
     l('inputStrToEncode', inputStrToEncode);
     l('mode', mode);
-//    l('editingCell', editingCell);
-//    l('isCellEdited', isCellEdited);
     console.groupEnd();
   },
 });
