@@ -90,6 +90,10 @@ if (urlHexList !== null) {
 //    }
   };
   addHexList(hexListFromUrl, additionalProps.name === undefined ? 'from URL' : `${additionalProps.name} (from URL)`);
+
+  // select this hexlist
+  hexListSelect.selectedIndex = hexListSelect.length - 1;
+  processHexListChange();
 }
 
 }
@@ -97,8 +101,10 @@ if (urlHexList !== null) {
 
 
 
-hexListSelect.addEventListener('change', function() {
-  hexList = hexLists[this.value];
+hexListSelect.addEventListener('change', processHexListChange);
+
+function processHexListChange() {
+  hexList = hexLists[hexListSelect.value];
   showHexList();
 
   document.querySelectorAll('fieldset').forEach(fs => fs.disabled = false);
@@ -106,7 +112,7 @@ hexListSelect.addEventListener('change', function() {
   inputElem.value = inputStr;
   inputElem.focus();
   encodeUserInput();
-});
+}
 
 
 
@@ -263,13 +269,17 @@ function addArrayHexList(arrayHexList) {
 
 
 function addHexList(hexList, hexListName) {
-
   hexLists[hexListName] = hexList;
 
   const option = document.createElement('option');
   option.textContent = hexListName;
+  // adding changes selectedIndex, so we store it before adding
+  const selInd = hexListSelect.selectedIndex;
   hexListSelect.options.add(option);
-  hexListSelect.selectedIndex = -1;
+  if (selInd === -1) {
+    // if nothing was selected before adding, nothing should be selected after adding
+    hexListSelect.selectedIndex = selInd;
+  }
 }
 
 
