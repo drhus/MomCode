@@ -33,7 +33,6 @@ const HEXLIST_URL_SYMBOL_DELIMITER = '\x00';
 
 const HEXLIST_URL_ENCODE_COLOR_MAP = {
   'gray': 'z',
-  'grey': 'z',
   'orange': 'a',
   'black': 'k',
 };
