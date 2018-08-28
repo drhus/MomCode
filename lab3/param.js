@@ -21,9 +21,13 @@ const ABSENT_SYMBOL_HTML = '<strong>' + ABSENT_SYMBOL_CHAR + '</strong>';
 
 const ABSENT_SYMBOL_COLOR = 'x';
 
-
-const NUMBER_OF_RANDOM_BYTES_TO_GENERATE = 20;
-
+/*
+// for editing
+const ABSENT_SYMBOL = {
+//  char: '',
+//  color: '',
+};
+*/
 
 const SYMBOL_STYLE_DELIMITER = '-';
 

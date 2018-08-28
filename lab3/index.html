@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Deterministic Visual Identifier v0.4</title>
+    <title>Deterministic Visual Identifier v0.3</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="symbol style.css">
@@ -17,8 +17,8 @@
     <section>
       <fieldset disabled>
         <input type="button" value="Export" id="exportHexList" />
-        <input type="button" value="Table URL" id="generateTableURL" />
-        <input type="button" value="View URL" id="generateViewURL" />
+        <input type="button" value="Generate table URL" id="generateTableURL" />
+        <input type="button" value="Generate view URL" id="generateViewURL" />
         <br />
         <br />
         <div id="hexListProps">
@@ -143,9 +143,8 @@
       <br />
       <fieldset disabled>
         <label>
-          Text<br />
-          <input type="text" id="inputText" />
-          <input type="button" value="Random" id="generateRandomText" />
+          String<br />
+          <input type="text" id="inputString" />
         </label>
         <br />
         <output id="msg"></output>

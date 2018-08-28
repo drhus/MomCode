@@ -13,7 +13,7 @@ let mode = APP_DEFAULT_MODE;
 const hexListTableBody = document.querySelector('table').tBodies[0];
 const hexListSelect = document.querySelector('select');
 
-const inputElem = document.querySelector('#inputText');
+const inputElem = document.querySelector('#inputString');
 const msgOutput = document.querySelector('#msg');
 
 const hexValuesOutput = document.querySelector('#hexValues');
@@ -450,19 +450,6 @@ document.querySelector('#generateViewURL').addEventListener('click', function() 
   urlObj.searchParams.set('input', inputStr);
   urlObj.searchParams.set('hexListV1', encodeHexListToUrlString());
   window.open(decodeURI(urlObj.href));
-});
-
-
-
-
-document.querySelector('#generateRandomText').addEventListener('click', function() {
-  const randomBytes = [];
-  for (let n = 0; n < NUMBER_OF_RANDOM_BYTES_TO_GENERATE; ++ n) {
-    randomBytes.push(Math.floor(Math.random() * 255));
-  }
-  inputElem.value = randomBytes.map(num => num.toString(16).padStart(2, '0')).join('');
-  inputStr = inputElem.value;
-  encodeUserInput();
 });
 
 

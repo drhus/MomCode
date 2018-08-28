@@ -16,6 +16,7 @@ section:first-child {
 
 table {
   border-collapse: collapse;
+  _min-width: 500px;
 }
 
 th, td {
@@ -32,8 +33,8 @@ fieldset {
   padding: 0;
 }
 
-#inputText {
-  width: 300px;
+#inputString {
+  width: 400px;
 }
 
 
@@ -65,9 +66,4 @@ tbody:not(.empty) td:hover {
   font-size: 40px;
   border: 1px solid gray;
   height: 60px;
-}
-
-
-section + section fieldset {
-  width: 800px;
 }
