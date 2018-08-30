@@ -57,7 +57,7 @@ if (urlInput !== null) {
   inputElem.value = inputStr;
 }
 
-let urlHexList = url.searchParams.get('hexListV1');
+let urlHexList = url.searchParams.get('hexListV2');
 if (urlHexList !== null) {
   l(urlHexList, urlHexList.length);
 
@@ -65,35 +65,37 @@ if (urlHexList !== null) {
   l(urlHexList);
   l(urlHexList.length);
 
-//  l(b64dec === url);
+  const decompressedBytes = Int8Array.from(urlHexList, c => c.charCodeAt());
+  l(decompressedBytes);
+  l(decompressedBytes.length);
 
-  // decode
-  const urlSymbols = urlHexList.split(HEXLIST_URL_SYMBOL_DELIMITER);
-  l(urlSymbols, urlSymbols.length);
+  LZMA.decompress(decompressedBytes, function(decompressedString, error) {
+    l('LZMA.decompress()', decompressedString, error);
 
-  const hexListFromUrl = {
-    data: {},
-  };
-//  for (let n = 0x00; n <= 0xff; ++n) {
-//    hexListFromUrl[numToHex(n)] = urlSymbolToObjSymbol(urlSymbol[n]);
-//  }
-  const additionalProps = urlSymbols.splice(-3);
-  l(additionalProps);
-  urlSymbols.forEach((urlSymbol, i) => hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
-  l(hexListFromUrl);
+    const urlSymbols = decompressedString.split(HEXLIST_URL_SYMBOL_DELIMITER);
+    l(urlSymbols, urlSymbols.length);
 
-  // parse additional props
-  for (const [ind, propName] of HEXLIST_ADDITIONAL_PROPS.entries()) {
-//    const propVal = additionalProps[ind];
-//    if (propVal !== '') {
-    hexListFromUrl[propName] = additionalProps[ind];// propVal;
-//    }
-  };
-  addHexList(hexListFromUrl, additionalProps.name === undefined ? 'from URL' : `${additionalProps.name} (from URL)`);
+    const hexListFromUrl = {
+      data: {},
+    };
+  //  for (let n = 0x00; n <= 0xff; ++n) {
+  //    hexListFromUrl[numToHex(n)] = urlSymbolToObjSymbol(urlSymbol[n]);
+  //  }
+    const additionalProps = urlSymbols.splice(-3);
+    l(additionalProps);
+    urlSymbols.forEach((urlSymbol, i) => hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
+    l(hexListFromUrl);
 
-  // select this hexlist
-  hexListSelect.selectedIndex = hexListSelect.length - 1;
-  processHexListChange();
+    // parse additional props
+    for (const [ind, propName] of HEXLIST_ADDITIONAL_PROPS.entries()) {
+      hexListFromUrl[propName] = additionalProps[ind];
+    };
+    addHexList(hexListFromUrl, additionalProps.name === undefined ? 'from URL' : `${additionalProps.name} (from URL)`);
+
+    // select this hexlist
+    hexListSelect.selectedIndex = hexListSelect.length - 1;
+    processHexListChange();
+  });
 }
 
 }
@@ -447,8 +449,10 @@ document.querySelector('#generateTableURL').addEventListener('click', function()
   const urlObj = new URL(location.href);
   urlObj.searchParams.delete('mode');
   urlObj.searchParams.delete('input');
-  urlObj.searchParams.set('hexListV1', encodeHexListToUrlString());
-  window.open(decodeURI(urlObj.href));
+  encodeHexListToUrlString(function(urlString) {
+    urlObj.searchParams.set('hexListV2', urlString);
+    window.open(urlObj.href);
+  });
 });
 
 
@@ -458,8 +462,10 @@ document.querySelector('#generateViewURL').addEventListener('click', function() 
   const urlObj = new URL(location.href);
   urlObj.searchParams.set('mode', mode);
   urlObj.searchParams.set('input', inputStr);
-  urlObj.searchParams.set('hexListV1', encodeHexListToUrlString());
-  window.open(decodeURI(urlObj.href));
+  encodeHexListToUrlString(function(urlString) {
+    urlObj.searchParams.set('hexListV2', urlString);
+    window.open(urlObj.href);
+  });
 });
 
 
@@ -467,11 +473,12 @@ document.querySelector('#generateViewURL').addEventListener('click', function() 
 
 document.querySelector('#generateRandomText').addEventListener('click', function() {
   const randomBytes = [];
-  for (let n = 0; n < NUMBER_OF_RANDOM_BYTES_TO_GENERATE; ++ n) {
+  for (let n = 0; n < NUMBER_OF_RANDOM_BYTES_TO_GENERATE; ++n) {
     randomBytes.push(Math.floor(Math.random() * 255));
   }
-  inputElem.value = randomBytes.map(num => num.toString(16).padStart(2, '0')).join('');
-  inputStr = inputElem.value;
+
+  inputStr = randomBytes.map(num => num.toString(16).padStart(2, '0')).join('');
+  inputElem.value = inputStr;
   encodeUserInput();
 });
 

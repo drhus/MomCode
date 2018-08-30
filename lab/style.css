@@ -34,7 +34,7 @@ fieldset {
 }
 
 #inputText {
-  width: 300px;
+  width: 360px;
 }
 
 
@@ -69,6 +69,6 @@ tbody:not(.empty) td:hover {
 }
 
 
-section + section fieldset {
+_section + section fieldset {
   width: 800px;
 }

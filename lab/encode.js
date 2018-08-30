@@ -31,7 +31,7 @@ function encodeHexString(hexString) {
 
 
 
-function encodeHexListToUrlString() {
+function encodeHexListToUrlString(callback) {
   let hexNum;
   let symbol;
   let char;
@@ -42,10 +42,7 @@ function encodeHexListToUrlString() {
   const hexListData = hexList.data;
   for (let n = 0x00; n <= 0xff; ++n) {
     hexNum = numToHex(n);
-    l('\n');
-    l(hexNum);
     symbol = hexListData[hexNum];
-    l(symbol);
     if (symbol === undefined) {
       symbolStr = `${ABSENT_SYMBOL_CHAR.padStart(2)}${ABSENT_SYMBOL_COLOR}`;
     }
@@ -65,27 +62,28 @@ function encodeHexListToUrlString() {
         styles = [];
       }
       else {
-//        l(styles);
         styles = styles.map(style => HEXLIST_URL_ENCODE_STYLE_MAP[style] || style[0]);
-//        l(styles);
       }
-
       
 //      symbolStr = [char, color, styles.join(SYMBOL_STYLE_DELIMITER)].join(HEXLIST_URL_SYMBOL_PARTS_DELIMITER);
       symbolStr = char + color + styles.join(SYMBOL_STYLE_DELIMITER);
     }
-    l(symbolStr);
     stringParts.push(symbolStr);
-
-//    stylesPart = (symbol[2] === undefined) ? '' : `, '${symbol[2]}'`;
-//    lines.push(`  '${hexNum}': [ '${symbol[0]}', '${symbol[1]}'${stylesPart} ],`);
   }
   const rawString = stringParts.concat(hexList.name, hexList.author, hexList.comment).join(HEXLIST_URL_SYMBOL_DELIMITER);
   l(rawString);
   l(rawString.length);
 
-  const encodedString = Base64.encode(rawString);
-  l(encodedString);
-  l(encodedString.length);
-  return encodedString;
+  LZMA.compress(rawString, 1, function(compressedArray, error) {
+    l('LZMA.compress()', compressedArray, error);
+
+    const compressedString = String.fromCharCode(...compressedArray);
+    l(compressedString);
+    l(compressedString.length);
+
+    const encodedString = Base64.encode(compressedString, true);
+    l(encodedString);
+    l(encodedString.length);
+    callback(encodedString);
+  });
 }
