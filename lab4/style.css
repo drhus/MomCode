@@ -1,0 +1,74 @@
+_* {
+  outline: 1px solid red;
+}
+
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  display: flex;
+  margin: 0;
+}
+
+
+section:first-child {
+  margin-right: 30px;
+}
+
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 3px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+#inputText {
+  width: 300px;
+}
+
+
+
+div label {
+  margin-right: 15px;
+}
+
+input[type=radio] {
+  margin: 0;
+  position: relative;
+  top: 2px;
+}
+
+
+tbody:not(.empty) td:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+
+#msg {
+  color: gray;
+}
+
+
+#symbolsInHtml {
+  text-align: center;
+  font-size: 40px;
+  border: 1px solid gray;
+  height: 60px;
+}
+
+
+section + section fieldset {
+  width: 800px;
+}
