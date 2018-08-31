@@ -9,8 +9,15 @@ body {
   margin: 0;
 }
 
+#symbolsInHtml {
+  text-align: center;
+  font-size: 40px;
+  border: 1px solid gray;
+  height: 100%;
+  min-height: 1.8em;
+}
 
-section:first-child {
+/* section:first-child {
   margin-right: 30px;
 }
 
@@ -27,11 +34,6 @@ th, td {
   min-height: 20px;
 }
 
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
 
 #inputText {
   width: 360px;
@@ -61,14 +63,8 @@ tbody:not(.empty) td:hover {
 }
 
 
-#symbolsInHtml {
-  text-align: center;
-  font-size: 40px;
-  border: 1px solid gray;
-  height: 60px;
-}
-
 
 _section + section fieldset {
   width: 800px;
 }
+*/

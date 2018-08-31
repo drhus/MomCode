@@ -13,10 +13,48 @@
     <script defer src="lib/base64.min.js"></script>
     <script defer src="main.js"></script>
     <script defer src="bitcoin browserified.js"></script>
+
+<style>
+
+main{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden; 
+}
+
+#MomcodeApp {
+  flex: 1;
+  overflow: auto;
+}
+
+aside {
+  /* 28em is the width of the sidebars */
+  flex: 0 0 28em;
+  transition: margin 0.3s ease
+}
+
+
+/* Checkbox hack to toggle aside visibility */
+input ~ aside {
+  margin-left: -28em;
+}
+input:checked ~ aside {
+  margin-left: 0; 
+}
+
+</style>
+
   </head>
-  <body>
+  <body data-gr-c-s-loaded="true">
+
+  <div class="container">
+  <main style="background-color: #FFF;">
+  <input id="HexMatrix" type="checkbox" style="display:none"/>
+  <aside style="background-color: #FFF;">
     <section>
-      <fieldset disabled>
+	<div class="col-md-12">
+	  <fieldset disabled>
         <input type="button" value="Export" id="exportHexList" />
         <input type="button" value="Table URL" id="generateTableURL" />
         <input type="button" value="View URL" id="generateViewURL" />
@@ -43,7 +81,8 @@
           <br />
         </div>
       </fieldset>
-      <table>
+	  <center>
+      <table class="table table-bordered table-sm">
         <tbody class="empty">
           <tr>
             <th></th>
@@ -132,54 +171,76 @@
           </tr>
         </tbody>
       </table>
+	  </center>
+	  </div>
     </section>
-    <section>
-      <label>
-        Hex list
-        <br />
-        <select>
-        </select>
-      </label>
-      <br />
-      <br />
-      <fieldset disabled>
-        <label>
-          Text<br />
-          <input type="text" id="inputText" />
-          <input type="button" value="Random" id="generateRandomText" />
-        </label>
-        <br />
-        <output id="msg"></output>
-        <br />
-        <br />
-        Mode
-        <div id="mode">
-          <label>
-            Hex
-            <input type="radio" name="mode" checked data-mode="HEX" />
-          </label>
-          <label>
-            ASCII
-            <input type="radio" name="mode" data-mode="ASCII" />
-          </label>
-          <label>
-            Bitcoin
-            <input type="radio" name="mode" data-mode="BITCOIN" />
-          </label>
-        </div>
-        <br />
-        Output
-        <div id="symbolsInHtml"></div>
-        <br />
-        Raw encoded hex output
-        <br />
-        <output id="symbolsInText"></output>
-        <br />
-        <br />
-        Raw hex output
-        <br />
-        <output id="hexValues"></output>
-      </fieldset>
+	</aside>
+    <section id="MomcodeApp">
+	  <label style="font-size:24px;cursor:pointer" for="HexMatrix">&#9776; Matrix</label>
+	  <label class="float-right text-muted">v.05</label>
+	<div class="jumbotron text-center">
+	<h1>Mom Code</h1>
+	</div>
+
+	<div class="col-md-12">
+		<center>
+			<div class="mb-2 col-md-8">
+				<h6 class="p-1 text-left">Hex list</h6>
+				<select class="custom-select d-block w-100">
+				</select>
+				<fieldset disabled>
+				<h6 class="p-1 text-left">Identifier</h6>
+				<div class="input-group">
+				<input class="form-control form-control-lg" type="text" id="inputText" />
+					<div class="input-group-append">
+					<input class="btn btn-secondary" type="button" value="Random" id="generateRandomText" />
+					</div>
+				</div> 
+				<div class="text-left"><output id="msg" class="ml-2 text-muted" ></output></div>
+				<!-- <h6 class="mb-0">Mode</h6> -->
+				<div id="mode" class="text-left">
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="HEX" name="mode" class="custom-control-input" data-mode="HEX" checked="" required="">
+						<label class="custom-control-label" for="HEX">HEX</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="ASCII" name="mode" class="custom-control-input" data-mode="ASCII" required="">
+						<label class="custom-control-label" for="ASCII">ASCII</label>
+					</div>	
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="BITCOIN" name="mode" class="custom-control-input" data-mode="BITCOIN" required="">
+						<label class="custom-control-label" for="BITCOIN">BITCOIN</label>
+					</div>	
+				</div> 
+				</fieldset>
+			</div>
+		</center>
+
+		<div class="form-group">
+			<label for="symbolsInHtml">Output</label>
+			<div class="form-control" id="symbolsInHtml"></div>
+		</div>
+		<div class="form-group">
+			<label for="symbolsInText">Raw encoded hex output</label>
+			<textarea class="form-control form-control-sm" id="symbolsInText" readonly></textarea>
+		</div>
+		<div class="form-group">
+			<label for="hexValues">Raw hex output</label>
+			<textarea class="form-control form-control-sm" rows="1" id="hexValues" readonly></textarea>
+		</div>
+
+		
+		<details>
+		<summary style="text-align:right; margin-right: 2px; margin-top: 1em;" dir="rtl">Show&nbsp;instructions</summary> 
+		<p style="clear: both;">FAQ
+		</p>
+	</details>
+	</div>
     </section>
+	</main>
+	<footer class="container">
+      <p>:)</p>
+    </footer>
+	</div>
   </body>
 </html>
