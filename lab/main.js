@@ -119,10 +119,19 @@ function processHexListChange() {
 
 
 
-document.querySelector('#mode').addEventListener('input', processModeChange);
+if (navigator.userAgent.includes('Edge')) {
+  document.querySelectorAll('#mode input').forEach(inp => inp.addEventListener('change', processModeChange));
+
+  // Edge does not select default mode after page refresh
+  selectMode();
+}
+else {
+  // Edge can't do this
+  document.querySelector('#mode').addEventListener('input', processModeChange);
+}
 
 function processModeChange() {
-  mode = document.querySelector('input[type=radio]:checked').dataset.mode;
+  mode = event.target.dataset.mode;
   encodeUserInput();
 }
 
