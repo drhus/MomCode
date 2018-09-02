@@ -9,13 +9,54 @@ body {
   margin: 0;
 }
 
+
+main{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden; 
+}
+
+#MomcodeApp {
+  flex: 1;
+  overflow: auto;
+}
+
+aside {
+  /* 28em is the width of the sidebars */
+  flex: 0 0 28em;
+  transition: margin 0.3s ease
+}
+
+
+/* Checkbox hack to toggle aside visibility */
+input ~ aside {
+  margin-left: -28em;
+}
+input:checked ~ aside {
+  margin-left: 0; 
+}
+
 #symbolsInHtml {
-  text-align: center;
-  font-size: 40px;
-  border: 1px solid gray;
+  font-size: 2.6em;
   height: 100%;
   min-height: 1.8em;
 }
+
+tbody:not(.empty) td:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.table-xsm > thead > tr > th,
+.table-xsm > tbody > tr > th,
+.table-xsm > tfoot > tr > th,
+.table-xsm > thead > tr > td,
+.table-xsm > tbody > tr > td,
+.table-xsm > tfoot > tr > td {
+  padding: 2px;
+}
+
 
 /* section:first-child {
   margin-right: 30px;
@@ -52,16 +93,9 @@ input[type=radio] {
 }
 
 
-tbody:not(.empty) td:hover {
-  background-color: lightgrey;
-  cursor: pointer;
-}
-
-
 #msg {
   color: gray;
 }
-
 
 
 _section + section fieldset {

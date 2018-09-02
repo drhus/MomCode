@@ -111,7 +111,7 @@ function processHexListChange() {
 
   document.querySelectorAll('fieldset').forEach(fs => fs.disabled = false);
 
-  inputElem.value = inputStr;
+  // inputElem.value = inputStr;
   inputElem.focus();
   encodeUserInput();
 }
@@ -164,19 +164,19 @@ function encodeUserInput() {
       }
 
       if (inputStrToEncode.length === 0) {
-        showMsg('empty string');
+        showMsg('empty string! please input an identifier (Ethereum wallet address, hash or Hex string)');
         clearResults();
         return;
       }
 
       if (inputStrToEncode.length % 2 !== 0) {
-        showMsg('string length must be even');
+        showMsg('hexadecimal string length must be even');
         clearResults();
         return;
       }
 
       if (/[^\dabcdef]+/i.test(inputStrToEncode)) {
-        showMsg('not a hex symbol in string');
+        showMsg('not a valid hexadecimal digit(s), try with ASCII mode');
         clearResults();
         return;
       }
@@ -185,7 +185,7 @@ function encodeUserInput() {
     
     case 'ASCII':
       if (inputStr.length === 0) {
-        showMsg('empty string');
+        showMsg('empty string! please input an identifier (username, ticket record locator or text');
         clearResults();
         return;
       }
@@ -196,7 +196,7 @@ function encodeUserInput() {
     
     case 'BITCOIN':
       if (inputStr.length === 0) {
-        showMsg('empty string');
+        showMsg('empty string! please input a Bitcoin wallet address');
         clearResults();
         return;
       }
@@ -435,8 +435,9 @@ document.querySelector('#exportHexList').addEventListener('click', function() {
   lines.push('});');
 
   // download file
+  const dateNow = new Date().toISOString();
   const a = document.createElement('a')
-  a.download = hexListSelect.value + '-modified.js';
+  a.download = hexListSelect.value + '-modified-' + dateNow +'.js';
   a.href = URL.createObjectURL(new Blob([ lines.join('\n') ]));
   a.click();
   URL.revokeObjectURL(a.href);
@@ -487,7 +488,11 @@ document.querySelector('#generateRandomText').addEventListener('click', function
   }
 
   inputStr = randomBytes.map(num => num.toString(16).padStart(2, '0')).join('');
-  inputElem.value = inputStr;
+  inputElem.value = '0x' + inputStr; // 0x prefix + autoselct Hex mode 
+  {
+    mode = 'HEX';
+    selectMode();
+  }
   encodeUserInput();
 });
 

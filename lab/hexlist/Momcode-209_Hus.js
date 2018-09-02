@@ -1,8 +1,9 @@
 'use strict';
 
 addArrayHexList({
-  name: 'hus',
-  author: 'user3',
+  name: 'Momcode-209',
+  author: 'Hus',
+  comment: '2xx core encodes 6 basic colors in letters and maximize the use of ▲■♥★',
   data: {
     '00': ['🞧', '', 'underline'],
     '01': ['●', '', 'underline'],
@@ -93,7 +94,7 @@ addArrayHexList({
     '86': ['✂', 'orange', ''],
     '87': ['🕪', 'orange', ''],
     '88': ['🕶', 'orange', ''],
-    '89': ['💩', 'orange', ''],
+    '89': ['🛧', 'orange', ''],
     '90': ['☯', 'red', ''],
     '91': ['☂', 'red', ''],
     '92': ['🕿', 'red', 'small'],
@@ -115,7 +116,7 @@ addArrayHexList({
     '1C': ['●', 'yellow', 'underline'],
     '1D': ['●', 'green', 'underline'],
     '1E': ['●', 'blue', 'underline'],
-    '1F': ['●', 'purple', ''],
+    '1F': ['●', 'purple', 'underline'],
     '2A': ['♥', 'red', 'underline'],
     '2B': ['♥', 'orange', 'underline'],
     '2C': ['♥', 'yellow', 'underline'],
