@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="symbol style.css" />
+    <link rel="stylesheet" href="symbol_style.css" />
     <script defer src="param.js"></script>
     <script defer src="convert.js"></script>
     <script defer src="encode.js"></script>
@@ -21,25 +21,25 @@
   <input id="HexMatrix" type="checkbox" style="display:none" />
   <aside>
     <section>
-	<div class="col-md-12 mt-5">
+	<div class="col-md-12 mt-5 pt-2">
 	  <fieldset disabled>
-        <div id="hexListProps">
-          <label>
-            <input size="18" class="form-control" type="text" id="hexListName" data-prop-name="name" placeholder="Name" />
-          </label>
-          <label>
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">By</span>
-				</div>
-				<input size="18" class="form-control" type="text" id="hexListAuthor" data-prop-name="author" placeholder="Author" />
-			</div>			
-          </label>
-          <label>
-            <input size="100%" class="form-control form-control" type="text" id="hexListComment" data-prop-name="comment" placeholder="Comment" />
-          </label>
-        </div>
 
+        <div class="form-row" id="hexListProps">
+			<div class="form-group col-md-6">
+				<input class="form-control" type="text" id="hexListName" data-prop-name="name" placeholder="Name" />
+			</div>
+			<div class="form-group col-md-6">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">By</span>
+					</div>
+					<input class="form-control" type="text" id="hexListAuthor" data-prop-name="author" placeholder="Author" />
+				</div>			
+			</div>
+			<div class="form-group col-md-12">	
+				<input class="form-control" type="text" id="hexListComment" data-prop-name="comment" placeholder="Comment" />
+			</div>
+		</div>
       <table class="table table-bordered table-xsm text-center">
         <tbody class="empty">
           <tr>
@@ -142,8 +142,8 @@
     <section id="MomcodeApp">
 	
 	<nav class="navbar navbar-light bg-white pl-0 pr-0">
-		<label class="navbar-toggler mb-0" data-toggle="HexMatrix" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" for="HexMatrix">
-      <span class="navbar-toggler-icon"></span>
+		<label class="navbar-toggler mb-0" for="HexMatrix">
+			<span class="navbar-toggler-icon"></span>
 		</label>
 		<label class="float-right text-muted">Test Lab v0.6</label>
 	</nav>
@@ -189,7 +189,7 @@
 		</center>
 
 		<div class="form-group">
-			<label for="symbolsInHtml">Momcode</label>
+			<label>Momcode</label>
 			<div class="form-control text-center display-2" id="symbolsInHtml"></div>
 		</div>
 		<div class="form-group">
