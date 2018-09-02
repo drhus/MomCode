@@ -2,8 +2,8 @@
 'use strict';
 
 addArrayHexList({
-  name: 'Momcode-Emoji General',
-  comment: '4fun, unfiltered random emoji',
+  name: 'Emoji Random',
+  comment: 'just4fun, unfiltered random emoji',
   data: {
     '00': [ '😀', , ],
     '01': [ '😃', , ],

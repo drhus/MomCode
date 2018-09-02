@@ -10,7 +10,7 @@ const HEXLIST_NAMES = [
   'Emoji-Random',
 ];
 
-const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment'];
+const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment', 'number'];
 
 
 const APP_DEFAULT_MODE = 'HEX';

@@ -1,8 +1,8 @@
 'use strict';
 
 addArrayHexList({
-  name: 'Momcode-209',
-  author: 'Hus',
+  name: 'Geometric & Common Shapes',
+  number: '209',
   comment: '2xx core encodes 6 basic colors in letters and maximize the use of ▲■♥★',
   data: {
     '00': ['🞧', '', 'underline'],

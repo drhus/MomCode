@@ -16,28 +16,41 @@
   </head>
   <body data-gr-c-s-loaded="true">
 
-  <div class="container">
+  <div class="col-md-12">
   <main>
   <input id="HexMatrix" type="checkbox" style="display:none" />
   <aside>
     <section>
 	<div class="col-md-12 mt-5 pt-2">
 	  <fieldset disabled>
-
+		<h6>Encoder Dictionary Proposal</h6>
         <div class="form-row" id="hexListProps">
-			<div class="form-group col-md-6">
-				<input class="form-control" type="text" id="hexListName" data-prop-name="name" placeholder="Name" />
-			</div>
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-3">
 				<div class="input-group">
 					<div class="input-group-prepend">
-						<span class="input-group-text">By</span>
+						<span class="input-group-text form-control-sm">#</span>
 					</div>
-					<input class="form-control" type="text" id="hexListAuthor" data-prop-name="author" placeholder="Author" />
+					<input class="form-control form-control-sm" type="text" id="hexListAuthor" data-prop-name="number" placeholder="Number" />
+				</div>			
+			</div>
+			<div class="form-group col-md-5">
+				<div class="input-group">
+					<!-- <div class="input-group-prepend">
+						<span class="input-group-text form-control-sm"></span>
+					</div> -->
+					<input class="form-control form-control-sm" type="text" id="hexListName" data-prop-name="name" placeholder="Name" />
+				</div>			
+			</div>			
+			<div class="form-group col-md-4">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text form-control-sm">By</span>
+					</div>
+					<input class="form-control form-control-sm" type="text" id="hexListAuthor" data-prop-name="author" placeholder="Author" />
 				</div>			
 			</div>
 			<div class="form-group col-md-12">	
-				<input class="form-control" type="text" id="hexListComment" data-prop-name="comment" placeholder="Comment" />
+				<input class="form-control form-control-sm" type="text" id="hexListComment" data-prop-name="comment" placeholder="Comment" />
 			</div>
 		</div>
       <table class="table table-bordered table-xsm text-center">
@@ -153,8 +166,9 @@
 	<h1>Mom Code</h1>
 	</div>
 
-	<div class="col-md-12">
-		<center>
+	<div class="container">
+		<div class="row">
+			<div class="mb-2 col-md-2"></div>
 			<div class="mb-2 col-md-8">
 				<!-- <h6 class="p-1 text-left">Hex list</h6>-->
 				<select class="custom-select d-block w-100">
@@ -186,7 +200,8 @@
 				</div> 
 				</fieldset>
 			</div>
-		</center>
+			<div class="mb-2 col-md-2"></div>
+		</div>
 
 		<div class="form-group">
 			<label>Momcode</label>
