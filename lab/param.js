@@ -4,8 +4,10 @@ const HEXLIST_DIRECTORY = 'hexlist';
 
 const HEXLIST_NAMES = [
   'Momcode-209_Hus',
+  'Momcode-210_Hus',  
   'Momcode-test',
-  'Momcode-empty-set',
+  'empty-set',
+  'Emoji-Random',
 ];
 
 const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment'];
