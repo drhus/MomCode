@@ -498,9 +498,9 @@ document.querySelector('#generateRandomText').addEventListener('click', function
 
 
 document.querySelector('#myEthAddress').addEventListener('click', function() {
-	const account = new web3.eth.accounts[0]
-	
-	inputElem.value = '0x' + account; // 0x prefix + autoselct Hex mode 
+	const account = new web3.eth.accounts[0];
+	inputStr = account;
+	inputElem.value = '0x' + inputStr; // 0x prefix + autoselct Hex mode 
   {
     mode = 'HEX';
     selectMode();
