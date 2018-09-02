@@ -30,8 +30,11 @@
                 console.error("Not connected");
             }
             var account = web3.eth.accounts[0];
-			document.getElementById("inputText").value = account;
+			//document.getElementById("inputText").value = account;
+			document.getElementById("myEthAddress").innerHTML = account;
+			
         });
+		
     </script>
 
   </head>
@@ -44,7 +47,7 @@
     <section>
 	<div class="col-md-12 mt-5 pt-2">
 	  <fieldset disabled>
-		<h6>Encoding Dictionary Proposal</h6>
+		<h5 class="text-center">Encoding Dictionary Proposal</h5>
         <div class="form-row" id="hexListProps">
 			<div class="form-group col-md-3">
 				<div class="input-group">
@@ -179,7 +182,9 @@
 		<label class="navbar-toggler mb-0" for="HexMatrix">
 			<span class="navbar-toggler-icon"></span>
 		</label>
-		<label class="float-right text-muted">Test Lab v0.6</label>
+		<label class="float-right text-muted">Test Lab v0.6<br>
+			<span style="cursor: pointer;" class="float-right text-muted font-weight-light" id="myEthAddress"></span>
+		</label>
 	</nav>
   
 	  
