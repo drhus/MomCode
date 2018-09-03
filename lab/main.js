@@ -498,20 +498,24 @@ document.querySelector('#generateRandomText').addEventListener('click', function
 
 
 document.querySelector('#myEthAddress').addEventListener('click', function() {
-    // Load WEB3
-    // Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
-    if(typeof web3 !== 'undefined') {
-        web3 = new Web3(web3.currentProvider);  
-        // Or connect to a node
-    } else {
-       web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-    }
-        // Check the connection
-    if(!web3.isConnected()) {
-        console.error("Not connected");
-    }
-    var account = web3.eth.accounts[0];
+            // Load WEB3
+            // Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
+            if(typeof web3 !== 'undefined') {
+                web3 = new Web3(web3.currentProvider);  
+            // Or connect to a node
+            } else {
+                web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            }
+            // Check the connection
+            if(!web3.isConnected()) {
+                console.error("Not connected");
+            }
+            var account = web3.eth.accounts[0];
+			//document.getElementById("inputText").value = account;
+			//document.getElementById("myEthAddress").innerHTML = account;
 
+	//const account = new web3.eth.accounts[0];
+	inputStr = account;
 	inputElem.value = account; // 
   {
     mode = 'HEX';
