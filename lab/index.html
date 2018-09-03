@@ -4,7 +4,7 @@
     <title>Momcode :: Deterministic Visual Identifier | Test Lab v0.6</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3-light.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ethjs@0.3.4/dist/ethjs.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="symbol_style.css" />
     <script defer src="param.js"></script>
@@ -17,8 +17,7 @@
 	
     <script>
         window.addEventListener('load', function() {
-            // Load WEB3
-            // Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
+            // Load WEB3 Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
             if(typeof web3 !== 'undefined') {
                 web3 = new Web3(web3.currentProvider);  
             // Or connect to a node
@@ -181,7 +180,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</label>
 		<label class="text-right float-right text-muted m-0">Test Lab v0.6<br>
-			<span style="cursor: pointer;" class="float-right text-muted font-weight-light" id="myEthAddress"></span>
+			<span style="cursor: pointer;" class="float-right text-muted font-weight-light" id="myEthAddress" title="Click to test it with your address"></span>
 		</label>
 	</nav>
   
