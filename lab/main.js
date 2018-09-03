@@ -510,9 +510,9 @@ document.querySelector('#myEthAddress').addEventListener('click', function() {
     if(!web3.isConnected()) {
         console.error("Not connected");
     }
-    var account = web3.eth.accounts[0];
+    var myEthAccount = web3.eth.accounts[0];
 
-	inputElem.value = account; // 
+	inputElem.value = myEthAccount; // 
 	{
     mode = 'HEX';
     selectMode();
