@@ -54,7 +54,7 @@ tbody:not(.empty) td:hover {
 .table-xsm > thead > tr > td,
 .table-xsm > tbody > tr > td,
 .table-xsm > tfoot > tr > td {
-  padding: 2px;
+  padding: 1px;
 }
 
 
