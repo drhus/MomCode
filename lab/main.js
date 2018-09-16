@@ -130,7 +130,7 @@ else {
   document.querySelector('#mode').addEventListener('input', processModeChange);
 }
 
-function processModeChange() {
+function processModeChange(event) {
   mode = event.target.dataset.mode;
   encodeUserInput();
 }
