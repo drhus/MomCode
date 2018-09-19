@@ -5,6 +5,7 @@ const HEXLIST_DIRECTORY = 'hexlist';
 const HEXLIST_NAMES = [
   'Momcode-209_Hus',
   'Momcode-210_Hus',  
+  'Momcode-211_Hus',  
   'Momcode-test',
   'empty-set',
   'Emoji-Random',
