@@ -59,17 +59,19 @@
 .w,
 .white {
   color: white;
-  background-color: #000;
+  /*background-color: #000;*/
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .k,
 .black {
   color: black;
-  background-color: #FFF;
+  /* background-color: #FFF; */
+  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
 }
 
 .gr,
 .gray {
   color: gray;
-  background-color: #FFF;
+  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
 }
