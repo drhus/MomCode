@@ -40,7 +40,8 @@ input:checked ~ aside {
 #symbolsInHtml {
   font-size: 2.3em;
   height: 100%;
-  min-height: 1.8em;
+  #min-height: 1.8em;
+  min-height: 8em;
 }
 
 tbody:not(.empty) td:hover {
