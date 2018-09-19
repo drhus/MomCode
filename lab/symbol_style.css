@@ -38,6 +38,7 @@
 .y,
 .yellow {
   color: yellow;
+  text-shadow: -1px -1px 0 #FFD300, 1px -1px 0 #FFD300, -1px 1px 0 #FFD300, 1px 1px 0 #FFD300;
 }
 
 .g,
