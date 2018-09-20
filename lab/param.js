@@ -6,7 +6,7 @@ const HEXLIST_NAMES = [
   'Momcode-209_Hus',
   'Momcode-210_Hus',  
   'Momcode-211_Hus',  
-  'Momcode-test',
+  'Momcode-301_Hus (ASCII Optimized + Letter Frequency)',
   'empty-set',
   'Emoji-Random',
 ];
