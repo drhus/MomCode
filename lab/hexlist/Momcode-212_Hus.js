@@ -4,7 +4,7 @@
 addArrayHexList({
   name: 'Geometric & Common Shapes',
   author: 'Hus',
-  comment: '2xx core encodes 6 basic colors in letters and maximize the use of ⬤▲■♥★',
+  comment: '2xx core encodes 6 basic colors in letters and maximizes the use of ⬤▲■♥★',
   number: '212',
   data: {
     '00': [ '🞧', , 'u' ],
