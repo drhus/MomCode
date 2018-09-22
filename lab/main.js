@@ -81,14 +81,15 @@ if (urlHexList !== null) {
   //  for (let n = 0x00; n <= 0xff; ++n) {
   //    hexListFromUrl[numToHex(n)] = urlSymbolToObjSymbol(urlSymbol[n]);
   //  }
-    const additionalProps = urlSymbols.splice(-3);
+    const additionalProps = urlSymbols.splice(-4);
     l(additionalProps);
-    urlSymbols.forEach((urlSymbol, i) => hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
+    urlSymbols.forEach((urlSymbol, i) => 
+      hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
     l(hexListFromUrl);
 
     // parse additional props
-    for (const [ind, propName] of HEXLIST_ADDITIONAL_PROPS.entries()) {
-      hexListFromUrl[propName] = additionalProps[ind];
+    for (const [index, propName] of HEXLIST_ADDITIONAL_PROPS.entries()) {
+      hexListFromUrl[propName] = additionalProps[index];
     };
     addHexList(hexListFromUrl, additionalProps.name === undefined ? 'from URL' : `${additionalProps.name} (from URL)`);
 

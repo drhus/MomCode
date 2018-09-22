@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
 _* {
   outline: 1px solid red;
 }
 
+#symbolsInHtml {font-family: "Noto Sans";}
 
 body {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
