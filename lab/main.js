@@ -311,7 +311,7 @@ function showHexList() {
 
   // show additional props
   for (const propName of HEXLIST_ADDITIONAL_PROPS) {
-    document.querySelector(`input[data-prop-name=${propName}]`).value = hexList[propName] || '';
+    document.querySelector(`${propName != 'comment' ? 'input' : 'textarea'}[data-prop-name=${propName}]`).value = hexList[propName] || '';
   };
 }
 
