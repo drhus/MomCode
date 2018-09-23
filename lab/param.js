@@ -8,8 +8,10 @@ const HEXLIST_NAMES = [
   'Momcode-211_Hus',
   'Momcode-212_Hus',
   'Momcode-301_Hus (ASCII Optimized + Letter Frequency)',
-  'empty-set',
-  'Emoji-Random',
+  '4Fun - IdentiAddress I',
+  '4Fun - IdentiAddress II',
+  '4Fun - Emoji-Random',
+  'empty-set',  
 ];
 
 const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment', 'number'];
