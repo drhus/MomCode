@@ -8,7 +8,8 @@
   text-decoration-line: line-through;
 }
 
-.o,
+.q,
+.ol,
 .overline {
   text-decoration-line: overline;
 }
@@ -70,8 +71,75 @@
   text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
 }
 
+.z,
 .gr,
 .gray {
   color: gray;
   text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+}
+
+/* */
+.bg-r,
+.xr,
+.bg-red {
+  color: white;
+  background-color: red;
+  /*border-radius: 5px;*/  
+}
+
+.xo,
+.bg-o,
+.bg-orange {
+  color: white;	
+  background-color: orange;
+}
+
+.xy,
+.bg-y,
+.bg-yellow {
+  color: white;
+  background-color: yellow;
+    text-shadow: -1px -1px 0 #FFD300, 1px -1px 0 #FFD300, -1px 1px 0 #FFD300, 1px 1px 0 #FFD300;
+}
+
+.xg,
+.bg-g,
+.bg-green {
+  color: white;
+  background-color: green;
+}
+
+.xg,
+.bg-b,
+.bg-blue {
+  color: white;
+  background-color:blue;
+}
+
+.xp,
+.bg-p,
+.bg-purple {
+  color: white;
+  background-color: purple;
+}
+
+.xw,
+.bg-w,
+.bg-white {
+  color: black;
+  background-color: white;
+}
+
+.xk,
+.bg-k,
+.bg-black {
+  color: white;
+  background-color: black;
+}
+
+.xgr,
+.bg-gr,
+.bg-gray {
+  color: white;
+  background-color: gray;
 }
