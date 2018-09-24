@@ -14,6 +14,8 @@
     <script defer src="lib/base64.min.js"></script>
     <script defer src="main.js"></script>
     <script defer src="bitcoin_browserified.js"></script>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	
     <script>
         window.addEventListener('load', function() {
@@ -188,7 +190,13 @@
 		<label class="navbar-toggler mb-1 mt-2" for="HexMatrix">
 			<span class="navbar-toggler-icon"></span>
 		</label>
-		<label class="text-right float-right text-muted m-0">Test Lab v0.6<br>
+
+		<label class="text-right float-right text-muted m-0">	
+			Test Lab v0.6
+			<a href="https://github.com/drhus/Momcode" title="Source Code" class="btn btn-light"><i class="fab fa-github"></i></a>
+			<a href="https://github.com/drhus/Momcode/issues" title="Discussions, Suggestions and Bug Reporting" class="btn btn-light"><i class="far fa-comment-alt"></i> Issues</a>
+		
+			<br>
 			<span style="cursor: pointer;" class="float-right text-muted font-weight-light" id="myEthAddress" title="Click to test it with your address"></span>
 		</label>
 	</nav>
@@ -255,8 +263,10 @@
 	</div>
     </section>
 	</main>
-	<footer class="pt-5 text-muted text-center text-small">
-      <p></p>
+	<footer class="pt-4 my-md-5 pt-md-5 border-top text-muted text-center text-small">
+	<div class="container">
+      <p>Made with <img style="fill: green;" src="mom.svg" alt="Momcode" height="26" width="26"> in mind</p>
+	</div>  
     </footer>
 	</div>
   </body>
