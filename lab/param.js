@@ -89,7 +89,8 @@ const HEXLIST_URL_ENCODE_STYLE_MAP = {
   'underline': 'u',
   'strikethrough': 's',
   'overline': 'q',  
-  'italic': 'i',  
+  'italic': 'i',
+  'tiny': 't',
 };
 
 const HEXLIST_URL_DECODE_STYLE_MAP = {
@@ -98,6 +99,7 @@ const HEXLIST_URL_DECODE_STYLE_MAP = {
   'l': 'bold',
   'u': 'underline',
   's': 'strikethrough',
-  'q': 'overline',  
-  'i': 'italic',  
+  'q': 'overline',
+  'i': 'italic',
+  'tiny': 't',
 };
