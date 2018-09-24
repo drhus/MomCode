@@ -24,7 +24,28 @@
   font-style: italic;
 }
 
+.table-xsm > thead > tr > th > .tiny,
+.table-xsm > tbody > tr > th > .tiny,
+.table-xsm > tfoot > tr > th > .tiny,
+.table-xsm > thead > tr > td > .tiny,
+.table-xsm > tbody > tr > td > .tiny,
+.table-xsm > tfoot > tr > td > .tiny {
+   font-size: 4px;
+}
 
+#symbolsInHtml > .tiny {
+   display: inline-block;
+   font-size: 20px;
+   font-weight: 600;
+   margin-left: 10px;
+}
+
+/*
+span + span {
+    margin-left: 10px;
+}
+*/
+.
 /* colors */
 .r,
 .red {

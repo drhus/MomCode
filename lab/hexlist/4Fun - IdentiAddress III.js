@@ -1,4 +1,3 @@
-// exported at 9/23/2018, 5:49:04 PM
 'use strict';
 
 addArrayHexList({

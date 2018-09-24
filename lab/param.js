@@ -8,6 +8,8 @@ const HEXLIST_NAMES = [
   'Momcode-211_Hus',
   'Momcode-212_Hus',
   'Momcode-301_Hus (ASCII + Frequency)',
+  '4Fun - PGP word list (Even Words)',  
+  '4Fun - PGP word list (Odd Words)',    
   '4Fun - IdentiAddress I',
   '4Fun - IdentiAddress II',
   '4Fun - IdentiAddress III',  

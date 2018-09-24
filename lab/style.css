@@ -45,6 +45,7 @@ input:checked ~ aside {
   height: 100%;
     /*min-height: 8em;*/
   min-height: 1.8em;
+
 }
 
 tbody:not(.empty) td:hover {
