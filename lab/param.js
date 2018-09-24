@@ -69,7 +69,7 @@ const HEXLIST_URL_DECODE_COLOR_MAP = {
   'b': 'blue',
   'p': 'purple',
   'w': 'white',
-  'b': 'black',
+  'k': 'black',
   '1': 'bg-red',
   '2': 'bg-orange',
   '3': 'bg-yellow',
