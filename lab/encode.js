@@ -70,7 +70,7 @@ function encodeHexListToUrlString(callback) {
     }
     stringParts.push(symbolStr);
   }
-  const rawString = stringParts.concat(hexList.name, hexList.author, hexList.comment,hexList.number).join(HEXLIST_URL_SYMBOL_DELIMITER);
+  const rawString = stringParts.concat(hexList.name, hexList.author, hexList.comment, hexList.number).join(HEXLIST_URL_SYMBOL_DELIMITER);
   l(rawString);
   l(rawString.length);
 

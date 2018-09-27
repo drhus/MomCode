@@ -3,18 +3,20 @@
 const HEXLIST_DIRECTORY = 'hexlist';
 
 const HEXLIST_NAMES = [
-  'Momcode-209_Hus',
-  'Momcode-210_Hus', 
-  'Momcode-211_Hus',
-  'Momcode-212_Hus',
-  'Momcode-301_Hus (ASCII + Frequency)',
+  'Momcode-209',
+  'Momcode-210', 
+  'Momcode-211',
+  'Momcode-220',
+  'Momcode-220A (Font Awesome)',
+  'Momcode-225A (Font Awesome)', 
+  'Momcode-225B (Colorblind-friendly + FA)',    
+  'Momcode-301 (ASCII + Frequency)',
   '4Fun - PGP word list (Even Words)',  
   '4Fun - PGP word list (Odd Words)',    
   '4Fun - IdentiAddress I',
   '4Fun - IdentiAddress II',
-  '4Fun - IdentiAddress III',  
+  '4Fun - IdentiAddress III', 
   '4Fun - Emoji-Random',
-  'empty-set',  
 ];
 
 const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment', 'number'];

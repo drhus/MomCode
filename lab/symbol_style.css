@@ -24,20 +24,22 @@
   font-style: italic;
 }
 
-.table-xsm > thead > tr > th > .tiny,
-.table-xsm > tbody > tr > th > .tiny,
-.table-xsm > tfoot > tr > th > .tiny,
-.table-xsm > thead > tr > td > .tiny,
-.table-xsm > tbody > tr > td > .tiny,
-.table-xsm > tfoot > tr > td > .tiny {
+
+.table-xsm > tbody > tr > td > .tiny
+{
    font-size: 4px;
 }
 
 #symbolsInHtml > .tiny {
    display: inline-block;
+   margin-right: 1%;
    font-size: 20px;
-   font-weight: 600;
-   margin-left: 10px;
+   font-weight: 600;   
+}
+
+#symbolsInHtml > .fas {
+   display: inline-block;
+   margin-left: 1%;
 }
 
 /*
@@ -59,7 +61,9 @@ span + span {
 .y,
 .yellow {
   color: yellow;
-  text-shadow: -1px -1px 0 #FFD300, 1px -1px 0 #FFD300, -1px 1px 0 #FFD300, 1px 1px 0 #FFD300;
+  /* color stroke
+  text-shadow: -1px -1px 0 #FFD300, 1px -1px 0 #FFD300, -1px 1px 0 #FFD300, 1px 1px 0 #FFD300; */
+  text-shadow: 0px 0px 1px black;
 }
 
 .g,
@@ -80,22 +84,24 @@ span + span {
 .w,
 .white {
   color: white;
-  /*background-color: #000;*/
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: 0px 0px 1px black;  
+  /* color stroke
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; */
 }
 
 .k,
 .black {
   color: black;
-  /* background-color: #FFF; */
-  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+  text-shadow: 0px 0px 1px white;
+  /* color stroke
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; */
 }
 
 .z,
 .gr,
 .gray {
   color: gray;
-  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+  /*text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;*/
 }
 
 /* */
@@ -119,7 +125,7 @@ span + span {
 .bg-yellow {
   color: white;
   background-color: yellow;
-    text-shadow: -1px -1px 0 #FFD300, 1px -1px 0 #FFD300, -1px 1px 0 #FFD300, 1px 1px 0 #FFD300;
+  text-shadow: -1px -1px 0 #FFD300, 1px -1px 0 #FFD300, -1px 1px 0 #FFD300, 1px 1px 0 #FFD300;
 }
 
 .xg,
@@ -163,3 +169,88 @@ span + span {
   color: white;
   background-color: gray;
 }
+
+
+/* 
+.fa-triangle {
+  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='24' width='24' viewBox='0 0 24 24'><path d='M1,21H23L12,2' /></svg>")
+}
+*/
+
+/* Colors-Patterns Print Frindly // Color blindness friendly colors */
+.red-strips {
+  background: repeating-linear-gradient(0deg, #ff000080, #ff000080 5%, red 0px, red 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.orange-strips {
+  background: repeating-linear-gradient(30deg, #ffa60080, #ffa60080 5%, orange 0px, orange 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.yellow-strips {
+  background: repeating-linear-gradient(60deg, #bfbf40, #bfbf40 5%, yellow 0px, yellow 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.green-strips {
+  background: repeating-linear-gradient(90deg, #00800080, #00800080 5%, green 0px, green 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.blue-strips {
+  background: repeating-linear-gradient(-30deg, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5) 5%, rgba(0, 0, 255, 1) 0px, rgba(0, 0, 255, 1) 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+.purple-strips {
+  background: repeating-linear-gradient(-60deg, rgba(128, 0, 128, 0.5), rgba(128, 0, 128, 0.5) 5%, rgba(128, 0, 128, 1) 0px, rgba(128, 0, 128, 1) 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.gray-strips {
+  background: repeating-linear-gradient(45deg, rgba(128, 128, 128, 0.5), rgba(128, 128, 128, 0.5) 3%, gray 0px, gray 34%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.black-strips {
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 3%, black 0px, black 34%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; 
+/*  color: black;
+  text-shadow: 0px 0px 1px white;  
+  */
+}
+
+.white-strips {
+   color: white;
+  text-shadow: 0px 0px 1px black;	
+  /* background: repeating-linear-gradient( 180deg, black, black 2px, white 0px, white 8px);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; */
+}
+
