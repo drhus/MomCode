@@ -453,8 +453,23 @@ document.querySelector('#hexListProps').addEventListener('change', function(even
   hexList[inputElem.dataset.propName] = inputElem.value;
 });
 
-
-
+/** 
+ * Shows an URL at the show instructions section
+ * @param {string} url - The generated URL
+ **/
+async function showInstructions(url) {
+  
+  document.querySelector('#show-instructions').innerHTML = `
+  <span style="margin-top: 1em; margin-bottom: 1em;" id="instructions-url">${url}</span>
+  <button style="display: block;margin-top: 1em; margin-bottom: 1em;" id="copy-instructions">Copy to clipboard</button>`;
+  document.querySelector('#copy-instructions').addEventListener('click', function() {
+    navigator.clipboard.writeText(url).then(function() {
+      console.log('Copying URL to clipboard was successful!');
+    }, function(err) {
+      console.error('Could not copy URL: ', err);
+    });    
+  });
+}
 
 document.querySelector('#generateTableURL').addEventListener('click', function() {
   const urlObj = new URL(location.href);
@@ -462,12 +477,10 @@ document.querySelector('#generateTableURL').addEventListener('click', function()
   urlObj.searchParams.delete('input');
   encodeHexListToUrlString(function(urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
-    window.open(urlObj.href);
+    //window.open(urlObj.href);
+    showInstructions(urlObj);
   });
 });
-
-
-
 
 document.querySelector('#generateViewURL').addEventListener('click', function() {
   const urlObj = new URL(location.href);
@@ -475,7 +488,8 @@ document.querySelector('#generateViewURL').addEventListener('click', function() 
   urlObj.searchParams.set('input', inputStr);
   encodeHexListToUrlString(function(urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
-    window.open(urlObj.href);
+    //window.open(urlObj.href);
+    showInstructions(urlObj);    
   });
 });
 
