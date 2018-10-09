@@ -83,7 +83,7 @@ if (urlHexList !== null) {
   //  }
     const additionalProps = urlSymbols.splice(-4);
     l(additionalProps);
-    urlSymbols.forEach((urlSymbol, i) => 
+    urlSymbols.forEach((urlSymbol, i) =>
       hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
     l(hexListFromUrl);
 
@@ -183,7 +183,7 @@ function encodeUserInput() {
       }
     break;
 
-    
+
     case 'ASCII':
       if (inputStr.length === 0) {
         showMsg('empty string! please input an identifier (username, ticket record locator or text');
@@ -194,7 +194,7 @@ function encodeUserInput() {
       inputStrToEncode = strToHexStr(inputStr);
     break;
 
-    
+
     case 'BITCOIN':
       if (inputStr.length === 0) {
         showMsg('empty string! please input a Bitcoin wallet address');
@@ -453,21 +453,23 @@ document.querySelector('#hexListProps').addEventListener('change', function(even
   hexList[inputElem.dataset.propName] = inputElem.value;
 });
 
-/** 
+/**
  * Shows an URL at the show instructions section
  * @param {string} url - The generated URL
  **/
-async function showInstructions(url) {
-  
-  document.querySelector('#show-instructions').innerHTML = `
-  <span style="margin-top: 1em; margin-bottom: 1em;" id="instructions-url">${url}</span>
-  <button style="display: block;margin-top: 1em; margin-bottom: 1em;" id="copy-instructions">Copy to clipboard</button>`;
-  document.querySelector('#copy-instructions').addEventListener('click', function() {
+async function showGenerateURL(url) {
+
+  document.querySelector('#show-GenerateURL').innerHTML = `
+  <textarea style="font-size: 8pt" class="form-control form-control-sm" rows="5" id="textarea-GenerateURL" readonly>${url}</textarea>
+  <div class="btn-group btn-group-toggle">
+  <a class="btn-sm" id="copy-GenerateURL" href="#" onclick="IDClick(id);event.preventDefault();"><span class="fa fa-copy"></span></a>
+  <a class="btn-sm" id="open-GenerateURL" href="${url}" target="_blank"><span class="fa fa-external-link-alt"></span></a></div>`;
+  document.querySelector('#copy-GenerateURL').addEventListener('click', function() {
     navigator.clipboard.writeText(url).then(function() {
       console.log('Copying URL to clipboard was successful!');
     }, function(err) {
       console.error('Could not copy URL: ', err);
-    });    
+    });
   });
 }
 
@@ -478,7 +480,7 @@ document.querySelector('#generateTableURL').addEventListener('click', function()
   encodeHexListToUrlString(function(urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
     //window.open(urlObj.href);
-    showInstructions(urlObj);
+    showGenerateURL(urlObj);
   });
 });
 
@@ -489,7 +491,7 @@ document.querySelector('#generateViewURL').addEventListener('click', function() 
   encodeHexListToUrlString(function(urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
     //window.open(urlObj.href);
-    showInstructions(urlObj);    
+    showGenerateURL(urlObj);
   });
 });
 
@@ -503,7 +505,7 @@ document.querySelector('#generateRandomText').addEventListener('click', function
   }
 
   inputStr = randomBytes.map(num => num.toString(16).padStart(2, '0')).join('');
-  inputElem.value = '0x' + inputStr; // 0x prefix + autoselct Hex mode 
+  inputElem.value = '0x' + inputStr; // 0x prefix + autoselct Hex mode
   {
     mode = 'HEX';
     selectMode();
@@ -516,7 +518,7 @@ document.querySelector('#myEthAddress').addEventListener('click', function() {
 	// Load WEB3
     // Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
     if(typeof web3 !== 'undefined') {
-		web3 = new Web3(web3.currentProvider);  
+		web3 = new Web3(web3.currentProvider);
         // Or connect to a node
       } else {
         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -529,7 +531,7 @@ document.querySelector('#myEthAddress').addEventListener('click', function() {
 
 	//const account = new web3.eth.accounts[0];
 	inputStr = account;
-	inputElem.value = account; // 
+	inputElem.value = account; //
   {
     mode = 'HEX';
     selectMode();

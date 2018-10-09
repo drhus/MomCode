@@ -14,16 +14,16 @@
     <script defer src="lib/base64.min.js"></script>
     <script defer src="main.js"></script>
     <script defer src="bitcoin_browserified.js"></script>
-		
+
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
-	
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <script>
         window.addEventListener('load', function() {
             // Load WEB3 Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
             if(typeof web3 !== 'undefined') {
-                web3 = new Web3(web3.currentProvider);  
+                web3 = new Web3(web3.currentProvider);
             // Or connect to a node
             } else {
                 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -65,7 +65,7 @@
 						<span class="input-group-text form-control-sm">#</span>
 					</div>
 					<input class="form-control form-control-sm" type="text" id="hexListNumber" data-prop-name="number" placeholder="Number" />
-				</div>			
+				</div>
 			</div>
 			<div class="form-group col-md-5">
 				<div class="input-group">
@@ -73,17 +73,17 @@
 						<span class="input-group-text form-control-sm"></span>
 					</div> -->
 					<input class="form-control form-control-sm" type="text" id="hexListName" data-prop-name="name" placeholder="Name" />
-				</div>			
-			</div>			
+				</div>
+			</div>
 			<div class="form-group col-md-4">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text form-control-sm">By</span>
 					</div>
 					<input class="form-control form-control-sm" type="text" id="hexListAuthor" data-prop-name="author" placeholder="Author" />
-				</div>			
+				</div>
 			</div>
-			<div class="form-group col-md-12">	        
+			<div class="form-group col-md-12">
         <textarea class="form-control form-control-sm" type="text" id="hexListComment" data-prop-name="comment" placeholder="Comment"></textarea>
 			</div>
 		</div>
@@ -175,35 +175,37 @@
             <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
           </tr>
         </tbody>
-      </table>	
+      </table>
 
 		<div class="btn-group btn-group-toggle float-right">
 			<button type="button" class="btn btn-outline-primary" value="Export" id="exportHexList" >Export</button>
 			<button type="button" class="btn btn-outline-secondary" value="Table URL" id="generateTableURL" data-toggle="tooltip" title="Generate a unique URL for your Momcode dictionary improvement proposal">Export URL</button>
-			<button type="button" class="btn btn-outline-secondary" value="View URL" id="generateViewURL" data-toggle="tooltip" title="Generate a unique URL for your Momcode dictionary improvement proposal, with all other inputs (Identifier, List and Mode)">View URL</button>  
+			<button type="button" class="btn btn-outline-secondary" value="View URL" id="generateViewURL" data-toggle="tooltip" title="Generate a unique URL for your Momcode dictionary improvement proposal, with all other inputs (Identifier, List and Mode)">View URL</button>
 		</div>
+    <div class="form-group" id="show-GenerateURL">
+    </div>
 		</fieldset>
 	  </div>
     </section>
 	</aside>
     <section id="MomcodeApp">
-	
+
 	<nav class="navbar navbar-light bg-white pl-0 pr-0">
 		<label class="navbar-toggler mb-1 mt-2" for="HexMatrix">
 			<span class="navbar-toggler-icon"></span>
 		</label>
 
-		<label class="text-right float-right text-muted m-0 small">	
+		<label class="text-right float-right text-muted m-0 small">
 			Test Lab v0.6
 			<a href="https://github.com/drhus/Momcode" title="Source Code" class="btn btn-light"><i class="fab fa-github"></i></a>
 			<a href="https://github.com/drhus/Momcode/issues" title="Discussions, Suggestions and Bug Reporting" class="btn btn-light"><i class="far fa-comment-alt"></i> Issues</a>
-		
+
 			<br>
 			<span style="cursor: pointer;" class="float-right text-muted font-weight-light small" id="myEthAddress" title="Click to test it with your address"></span>
 		</label>
 	</nav>
-  
-	  
+
+
 	<div class="jumbotron text-center">
 	<h1>Mom Code</h1>
 	</div>
@@ -223,7 +225,7 @@
 					<div class="input-group-append">
 					<input class="btn btn-secondary" type="button" value="Random" id="generateRandomText" />
 					</div>
-				</div> 
+				</div>
 				<div class="text-left"><output id="msg" class="ml-2 text-muted font-weight-light" ></output></div>
 				<!-- <h6 class="mb-0">Mode</h6> -->
 				<div id="mode" class="text-left">
@@ -234,12 +236,12 @@
 					<div class="custom-control custom-radio custom-control-inline">
 						<input type="radio" id="ASCII" name="mode" class="custom-control-input" data-mode="ASCII" required="">
 						<label class="custom-control-label" for="ASCII">ASCII</label>
-					</div>	
+					</div>
 					<div class="custom-control custom-radio custom-control-inline">
 						<input type="radio" id="BITCOIN" name="mode" class="custom-control-input" data-mode="BITCOIN" required="">
 						<label class="custom-control-label" for="BITCOIN">BITCOIN</label>
-					</div>	
-				</div> 
+					</div>
+				</div>
 				</fieldset>
 			</div>
 			<div class="mb-2 col-md-2"></div>
@@ -258,8 +260,8 @@
 			<textarea class="form-control form-control-sm" id="symbolsInText" readonly></textarea>
 		</div>
 		<details>
-		  <summary style="text-align:right; margin-right: 2px; margin-top: 1em;" dir="rtl">Show&nbsp;instructions</summary> 
-		  <p id="show-instructions" style="clear: both;"></p>
+		  <summary style="text-align:right; margin-right: 2px; margin-top: 1em;" dir="rtl">Show&nbsp;instructions</summary>
+		  <p style="clear: both;">soon</p>
 	</details>
 	</div>
     </section>
@@ -267,7 +269,7 @@
 	<footer class="pt-4 my-md-5 pt-md-5 border-top text-muted text-center text-small">
 	<div class="container">
       <p>Made with <img style="fill: green;" src="mom.svg" alt="Momcode" height="26" width="26"> in mind</p>
-	</div>  
+	</div>
     </footer>
 	</div>
   </body>
