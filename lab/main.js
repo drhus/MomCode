@@ -2,7 +2,7 @@
 
 const l = console.log;
 
-const MODES = [ 'HEX', 'ASCII', 'BITCOIN' ];
+const MODES = ['HEX', 'ASCII', 'BITCOIN'];
 const hexLists = {};
 let hexList; // selected hexlist
 let inputStr = '0x';
@@ -36,68 +36,67 @@ for (const hexListName of HEXLIST_NAMES) {
 
 // get values from URL
 {
-const url = new URL(location.href);
-let urlMode = url.searchParams.get('mode');
-if (urlMode !== null) {
-  l(urlMode);
-  urlMode = urlMode.toUpperCase();
-  if (MODES.includes(urlMode)) {
-    mode = urlMode;
-    selectMode();
+  const url = new URL(location.href);
+  let urlMode = url.searchParams.get('mode');
+  if (urlMode !== null) {
+    l(urlMode);
+    urlMode = urlMode.toUpperCase();
+    if (MODES.includes(urlMode)) {
+      mode = urlMode;
+      selectMode();
+    } else {
+      mode = APP_DEFAULT_MODE;
+    }
   }
-  else {
-    mode = APP_DEFAULT_MODE;
+
+  const urlInput = url.searchParams.get('input');
+  if (urlInput !== null) {
+    l(urlInput);
+    inputStr = urlInput;
+    inputElem.value = inputStr;
   }
-}
 
-const urlInput = url.searchParams.get('input');
-if (urlInput !== null) {
-  l(urlInput);
-  inputStr = urlInput;
-  inputElem.value = inputStr;
-}
+  let urlHexList = url.searchParams.get('hexListV2');
+  if (urlHexList !== null) {
+    l(urlHexList, urlHexList.length);
 
-let urlHexList = url.searchParams.get('hexListV2');
-if (urlHexList !== null) {
-  l(urlHexList, urlHexList.length);
+    urlHexList = Base64.decode(urlHexList);
+    l(urlHexList);
+    l(urlHexList.length);
 
-  urlHexList = Base64.decode(urlHexList);
-  l(urlHexList);
-  l(urlHexList.length);
+    const decompressedBytes = Int8Array.from(urlHexList, c => c.charCodeAt());
+    l(decompressedBytes);
+    l(decompressedBytes.length);
 
-  const decompressedBytes = Int8Array.from(urlHexList, c => c.charCodeAt());
-  l(decompressedBytes);
-  l(decompressedBytes.length);
+    LZMA.decompress(decompressedBytes, function (decompressedString, error) {
+      l('LZMA.decompress()', decompressedString, error);
 
-  LZMA.decompress(decompressedBytes, function(decompressedString, error) {
-    l('LZMA.decompress()', decompressedString, error);
+      const urlSymbols = decompressedString.split(HEXLIST_URL_SYMBOL_DELIMITER);
+      l(urlSymbols, urlSymbols.length);
 
-    const urlSymbols = decompressedString.split(HEXLIST_URL_SYMBOL_DELIMITER);
-    l(urlSymbols, urlSymbols.length);
+      const hexListFromUrl = {
+        data: {},
+      };
+      //  for (let n = 0x00; n <= 0xff; ++n) {
+      //    hexListFromUrl[numToHex(n)] = urlSymbolToObjSymbol(urlSymbol[n]);
+      //  }
+      const additionalProps = urlSymbols.splice(-4);
+      l(additionalProps);
+      urlSymbols.forEach((urlSymbol, i) =>
+        hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
+      l(hexListFromUrl);
 
-    const hexListFromUrl = {
-      data: {},
-    };
-  //  for (let n = 0x00; n <= 0xff; ++n) {
-  //    hexListFromUrl[numToHex(n)] = urlSymbolToObjSymbol(urlSymbol[n]);
-  //  }
-    const additionalProps = urlSymbols.splice(-4);
-    l(additionalProps);
-    urlSymbols.forEach((urlSymbol, i) =>
-      hexListFromUrl.data[numToHex(i)] = urlSymbolToObjSymbol(urlSymbol));
-    l(hexListFromUrl);
+      // parse additional props
+      for (const [index, propName] of HEXLIST_ADDITIONAL_PROPS.entries()) {
+        hexListFromUrl[propName] = additionalProps[index];
+      };
+      addHexList(hexListFromUrl, additionalProps.name === undefined ? 'from URL' : `${additionalProps.name} (from URL)`);
 
-    // parse additional props
-    for (const [index, propName] of HEXLIST_ADDITIONAL_PROPS.entries()) {
-      hexListFromUrl[propName] = additionalProps[index];
-    };
-    addHexList(hexListFromUrl, additionalProps.name === undefined ? 'from URL' : `${additionalProps.name} (from URL)`);
-
-    // select this hexlist
-    hexListSelect.selectedIndex = hexListSelect.length - 1;
-    processHexListChange();
-  });
-}
+      // select this hexlist
+      hexListSelect.selectedIndex = hexListSelect.length - 1;
+      processHexListChange();
+    });
+  }
 
 }
 
@@ -125,8 +124,7 @@ if (navigator.userAgent.includes('Edge')) {
 
   // Edge does not select default mode after page refresh
   selectMode();
-}
-else {
+} else {
   // Edge can't do this
   document.querySelector('#mode').addEventListener('input', processModeChange);
 }
@@ -139,7 +137,7 @@ function processModeChange(event) {
 
 
 
-inputElem.addEventListener('input', function() {
+inputElem.addEventListener('input', function () {
   inputStr = inputElem.value;
 
   // auto change to HEX mode
@@ -155,7 +153,7 @@ inputElem.addEventListener('input', function() {
 
 
 function encodeUserInput() {
-  switch(mode) {
+  switch (mode) {
     case 'HEX':
       inputStrToEncode = inputStr.toLowerCase();
 
@@ -181,7 +179,7 @@ function encodeUserInput() {
         clearResults();
         return;
       }
-    break;
+      break;
 
 
     case 'ASCII':
@@ -192,7 +190,7 @@ function encodeUserInput() {
       }
 
       inputStrToEncode = strToHexStr(inputStr);
-    break;
+      break;
 
 
     case 'BITCOIN':
@@ -204,18 +202,21 @@ function encodeUserInput() {
 
       try {
         inputStrToEncode = window.encodeBitcoinAddress(inputStr);
-      }
-      catch(err) {
+      } catch (err) {
         showMsg(err.message.toLowerCase());
         clearResults();
         return;
       }
-    break;
+      break;
   }
 
   clearMsg();
   l('inputStrToEncode', inputStrToEncode);
-  const { hexValues, symbolsInText, symbolsInHtml } = encodeHexString(inputStrToEncode);
+  const {
+    hexValues,
+    symbolsInText,
+    symbolsInHtml
+  } = encodeHexString(inputStrToEncode);
   hexValuesOutput.value = hexValues.join(' ');
   symbolsInTextOutput.value = symbolsInText.join(',');
   symbolsInHtmlOutput.innerHTML = symbolsInHtml.join('');
@@ -226,55 +227,55 @@ function encodeUserInput() {
 
 // add hexlist from array to hexlist storage and to <select>
 function addArrayHexList(arrayHexList) {
-//  const hexListName = document.currentScript.dataset.name;
+  //  const hexListName = document.currentScript.dataset.name;
 
   // convert hexlist to more usable form
   const objHexList = {
     data: {},
   };
   for (const propName of HEXLIST_ADDITIONAL_PROPS) {
-//    const propVal = arrayHexList[propName];
-//    if (propVal !== undefined) {
-      objHexList[propName] = arrayHexList[propName] || '';//propVal;
-//    }
+    //    const propVal = arrayHexList[propName];
+    //    if (propVal !== undefined) {
+    objHexList[propName] = arrayHexList[propName] || ''; //propVal;
+    //    }
   };
-//  let arraySymbol;
-//  let tmp;
+  //  let arraySymbol;
+  //  let tmp;
   for (const hexNum in arrayHexList.data) {
-//    arraySymbol = hexList[num];
+    //    arraySymbol = hexList[num];
 
-//    const objSymbol = arraySymbolToObjSymbol(arraySymbol);
-/*
-    const objSymbol = {
-      char: symbol[0],
-    }
+    //    const objSymbol = arraySymbolToObjSymbol(arraySymbol);
+    /*
+        const objSymbol = {
+          char: symbol[0],
+        }
 
-    tmp = symbol[1];
-    if (!(tmp === '' || tmp === undefined)) {
-      objSymbol.color = tmp;
-    }
+        tmp = symbol[1];
+        if (!(tmp === '' || tmp === undefined)) {
+          objSymbol.color = tmp;
+        }
 
-    tmp = symbol[2];
-    if (!(tmp === '' || tmp === undefined)) {
-      objSymbol.styles = tmp.split(SYMBOL_STYLE_DELIMITER);
-    }*/
+        tmp = symbol[2];
+        if (!(tmp === '' || tmp === undefined)) {
+          objSymbol.styles = tmp.split(SYMBOL_STYLE_DELIMITER);
+        }*/
 
     // remove empty color and styles
-//    symbol = symbol.map(el => el === '' ? undefined : el);
+    //    symbol = symbol.map(el => el === '' ? undefined : el);
 
     objHexList.data[hexNum.toLowerCase()] = arraySymbolToObjSymbol(arrayHexList.data[hexNum]);
   }
 
   addHexList(objHexList, document.currentScript.dataset.name);
 
-/*
-  hexLists[hexListName] = normalizedHexList;
+  /*
+    hexLists[hexListName] = normalizedHexList;
 
-  const option = document.createElement('option');
-  option.textContent = hexListName;
-  hexListSelect.options.add(option);
-  hexListSelect.selectedIndex = -1;
-*/
+    const option = document.createElement('option');
+    option.textContent = hexListName;
+    hexListSelect.options.add(option);
+    hexListSelect.selectedIndex = -1;
+  */
 }
 
 
@@ -350,7 +351,9 @@ function selectMode() {
 
 
 // editing
-hexListTableBody.addEventListener('click', function({ target: elem }) {
+hexListTableBody.addEventListener('click', function ({
+  target: elem
+}) {
   // nothing to edit
   if (hexListTableBody.classList.contains('empty')) {
     return;
@@ -385,9 +388,9 @@ hexListTableBody.addEventListener('click', function({ target: elem }) {
     return;
   }
 
-//  if (symbol.length === 3 && symbol[2] === '') {
-//    symbol.splice(-1);
-//  }
+  //  if (symbol.length === 3 && symbol[2] === '') {
+  //    symbol.splice(-1);
+  //  }
 
   hexList.data[cellHexNum] = newSymbol;
   elem.innerHTML = symbolToHtml(newSymbol);
@@ -398,7 +401,7 @@ hexListTableBody.addEventListener('click', function({ target: elem }) {
 
 
 // export hexlist
-document.querySelector('#exportHexList').addEventListener('click', function() {
+document.querySelector('#exportHexList').addEventListener('click', function () {
   const lines = [
     `// exported at ${new Date().toLocaleString()}`,
     "'use strict';",
@@ -438,8 +441,8 @@ document.querySelector('#exportHexList').addEventListener('click', function() {
   // download file
   const dateNow = new Date().toISOString();
   const a = document.createElement('a')
-  a.download = hexListSelect.value + '-modified-' + dateNow +'.js';
-  a.href = URL.createObjectURL(new Blob([ lines.join('\n') ]));
+  a.download = hexListSelect.value + '-modified-' + dateNow + '.js';
+  a.href = URL.createObjectURL(new Blob([lines.join('\n')]));
   a.click();
   URL.revokeObjectURL(a.href);
 });
@@ -448,7 +451,7 @@ document.querySelector('#exportHexList').addEventListener('click', function() {
 
 
 // changing hexlist props
-document.querySelector('#hexListProps').addEventListener('change', function(event) {
+document.querySelector('#hexListProps').addEventListener('change', function (event) {
   const inputElem = event.target;
   hexList[inputElem.dataset.propName] = inputElem.value;
 });
@@ -464,31 +467,31 @@ async function showGenerateURL(url) {
   <div class="btn-group btn-group-toggle">
   <a class="btn-sm" id="copy-GenerateURL" href="#" onclick="IDClick(id);event.preventDefault();"><span class="fa fa-copy"></span></a>
   <a class="btn-sm" id="open-GenerateURL" href="${url}" target="_blank"><span class="fa fa-external-link-alt"></span></a></div>`;
-  document.querySelector('#copy-GenerateURL').addEventListener('click', function() {
-    navigator.clipboard.writeText(url).then(function() {
+  document.querySelector('#copy-GenerateURL').addEventListener('click', function () {
+    navigator.clipboard.writeText(url).then(function () {
       console.log('Copying URL to clipboard was successful!');
-    }, function(err) {
+    }, function (err) {
       console.error('Could not copy URL: ', err);
     });
   });
 }
 
-document.querySelector('#generateTableURL').addEventListener('click', function() {
+document.querySelector('#generateTableURL').addEventListener('click', function () {
   const urlObj = new URL(location.href);
   urlObj.searchParams.delete('mode');
   urlObj.searchParams.delete('input');
-  encodeHexListToUrlString(function(urlString) {
+  encodeHexListToUrlString(function (urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
     //window.open(urlObj.href);
     showGenerateURL(urlObj);
   });
 });
 
-document.querySelector('#generateViewURL').addEventListener('click', function() {
+document.querySelector('#generateViewURL').addEventListener('click', function () {
   const urlObj = new URL(location.href);
   urlObj.searchParams.set('mode', mode);
   urlObj.searchParams.set('input', inputStr);
-  encodeHexListToUrlString(function(urlString) {
+  encodeHexListToUrlString(function (urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
     //window.open(urlObj.href);
     showGenerateURL(urlObj);
@@ -498,7 +501,7 @@ document.querySelector('#generateViewURL').addEventListener('click', function() 
 
 
 
-document.querySelector('#generateRandomText').addEventListener('click', function() {
+document.querySelector('#generateRandomText').addEventListener('click', function () {
   const randomBytes = [];
   for (let n = 0; n < NUMBER_OF_RANDOM_BYTES_TO_GENERATE; ++n) {
     randomBytes.push(Math.floor(Math.random() * 255));
@@ -514,24 +517,24 @@ document.querySelector('#generateRandomText').addEventListener('click', function
 });
 
 
-document.querySelector('#myEthAddress').addEventListener('click', function() {
-	// Load WEB3
-    // Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
-    if(typeof web3 !== 'undefined') {
-		web3 = new Web3(web3.currentProvider);
-        // Or connect to a node
-      } else {
-        web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-      }
-      // Check the connection
-    if(!web3.isConnected()) {
-		console.error("Not connected");
-      }
-      var account = web3.eth.accounts[0];
+document.querySelector('#myEthAddress').addEventListener('click', function () {
+  // Load WEB3
+  // Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
+  if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+    // Or connect to a node
+  } else {
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  }
+  // Check the connection
+  if (!web3.isConnected()) {
+    console.error("Not connected");
+  }
+  var account = web3.eth.accounts[0];
 
-	//const account = new web3.eth.accounts[0];
-	inputStr = account;
-	inputElem.value = account; //
+  //const account = new web3.eth.accounts[0];
+  inputStr = account;
+  inputElem.value = account; //
   {
     mode = 'HEX';
     selectMode();
@@ -543,7 +546,7 @@ document.querySelector('#myEthAddress').addEventListener('click', function() {
 
 // dev
 Object.defineProperty(window, 's', {
-  get : function() {
+  get: function () {
     console.group('curr state');
     l('hexLists', hexLists);
     l('hexList', hexList);
