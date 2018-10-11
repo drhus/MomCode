@@ -56,6 +56,12 @@ for (const hexListName of HEXLIST_NAMES) {
     inputElem.value = inputStr;
   }
 
+  const urlList = url.searchParams.get('list');
+  if (urlList !== null) {
+    l(urlList);
+    forceSetList(urlList);
+  }
+
   let urlHexList = url.searchParams.get('hexListV2');
   if (urlHexList !== null) {
     l(urlHexList, urlHexList.length);
@@ -100,13 +106,25 @@ for (const hexListName of HEXLIST_NAMES) {
 
 }
 
+function forceSetList(listName, delay = 1000) {
+  setTimeout(() => {
+    let optIdx = 0;
+    const reg = /[-_ \+\(\)]/g;
+    [...hexListSelect].find((el, i) => {
+      optIdx = i;
+      return el.value.replace(reg, "_").toLowerCase() === listName.toLowerCase().replace(reg, "_")
+    });
+    hexListSelect.selectedIndex = optIdx;
+    processHexListChange(hexListSelect[optIdx].value);
+  }, delay);
+}
 
+forceSetList("momcode_210", 100);
 
+hexListSelect.addEventListener('change', () => processHexListChange());
 
-hexListSelect.addEventListener('change', processHexListChange);
-
-function processHexListChange() {
-  hexList = hexLists[hexListSelect.value];
+function processHexListChange(forceSet) {
+  hexList = hexLists[forceSet || hexListSelect.value];
   showHexList();
 
   document.querySelectorAll('fieldset').forEach(fs => fs.disabled = false);
