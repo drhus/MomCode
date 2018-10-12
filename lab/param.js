@@ -24,7 +24,7 @@ const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment', 'number'];
 
 
 const APP_DEFAULT_MODE = 'HEX';
-const APP_DEFAULT_LIST = 'Momcode-209';
+const APP_DEFAULT_LIST = 'Momcode-230A (Font Awesome)';
 
 
 const ABSENT_SYMBOL_CHAR = '\u2639';
