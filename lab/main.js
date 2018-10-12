@@ -498,6 +498,7 @@ document.querySelector('#generateTableURL').addEventListener('click', function (
   const urlObj = new URL(location.href);
   urlObj.searchParams.delete('mode');
   urlObj.searchParams.delete('input');
+  urlObj.searchParams.delete('list');
   encodeHexListToUrlString(function (urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
     //window.open(urlObj.href);
@@ -509,6 +510,7 @@ document.querySelector('#generateViewURL').addEventListener('click', function ()
   const urlObj = new URL(location.href);
   urlObj.searchParams.set('mode', mode);
   urlObj.searchParams.set('input', inputStr);
+  urlObj.searchParams.delete('list');
   encodeHexListToUrlString(function (urlString) {
     urlObj.searchParams.set('hexListV2', urlString);
     //window.open(urlObj.href);
