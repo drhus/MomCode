@@ -119,7 +119,7 @@ function forceSetList(listName, delay = 1000) {
   }, delay);
 }
 
-forceSetList("momcode_210", 100);
+forceSetList(APP_DEFAULT_LIST, 100);
 
 hexListSelect.addEventListener('change', () => processHexListChange());
 
