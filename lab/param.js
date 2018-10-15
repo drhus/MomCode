@@ -22,6 +22,11 @@ const HEXLIST_NAMES = [
 
 const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment', 'number'];
 
+const FONT_FAMILY_LIST = [
+  'Lato', // to using something as initital value better to set it in first position of array, and it'll be default automatically :)
+  'Oswald',
+  'Roboto'
+];
 
 const APP_DEFAULT_MODE = 'HEX';
 const APP_DEFAULT_LIST = 'Momcode-230A (Font Awesome)';

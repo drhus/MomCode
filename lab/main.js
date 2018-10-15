@@ -11,7 +11,9 @@ let mode = APP_DEFAULT_MODE;
 
 
 const hexListTableBody = document.querySelector('table').tBodies[0];
-const hexListSelect = document.querySelector('select');
+const hexListSelect = document.querySelector('.dictionary-list-selector');
+
+const fontFamilySelect = document.querySelector('.font-family-selector');
 
 const inputElem = document.querySelector('#inputText');
 const msgOutput = document.querySelector('#msg');
@@ -19,9 +21,6 @@ const msgOutput = document.querySelector('#msg');
 const hexValuesOutput = document.querySelector('#hexValues');
 const symbolsInTextOutput = document.querySelector('#symbolsInText');
 const symbolsInHtmlOutput = document.querySelector('#symbolsInHtml');
-
-
-
 
 // load hexlists from files
 for (const hexListName of HEXLIST_NAMES) {
@@ -134,6 +133,26 @@ function processHexListChange(forceSet) {
   encodeUserInput();
 }
 
+function setFontFamiliesToSelector(arrayOfFonts, selectorEl) {
+  selectorEl.innerHTML = null;
+  selectorEl.onclick = (event) => {
+    console.log("New font-family selected ", event.target.value);
+    /**
+     * here do something with fonts
+     * at the moment decided to not implement anithing here,
+     * because using in one time Font Awesome for icons and this feature
+     * for selecting custom fonts haven't any sense
+     */
+  }
+  arrayOfFonts.forEach(fontName => {
+    const optionEl = document.createElement("option");
+    optionEl.value = fontName;
+    optionEl.innerHTML = fontName;
+    selectorEl.append(optionEl);
+  })
+}
+
+setFontFamiliesToSelector(FONT_FAMILY_LIST, fontFamilySelect);
 
 
 
