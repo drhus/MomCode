@@ -119,7 +119,7 @@ function forceSetList(listName, delay = 1000) {
   }, delay);
 }
 
-forceSetList(APP_DEFAULT_LIST, 100);
+forceSetList(APP_DEFAULT_LIST, 1000);
 
 hexListSelect.addEventListener('change', () => processHexListChange());
 
