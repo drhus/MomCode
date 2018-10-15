@@ -48,6 +48,15 @@ input:checked ~ aside {
 
 }
 
+.font-size-slider {
+  margin-top: 1.8em;
+}
+
+.font-size-slider + datalist {
+  display: flex;
+  justify-content: space-between;
+}
+
 tbody:not(.empty) td:hover {
   background-color: lightgrey;
   cursor: pointer;
@@ -86,7 +95,7 @@ th, td {
 }
 
 
-
+FONT_FAMILY_LIST
 div label {
   margin-right: 15px;
 }

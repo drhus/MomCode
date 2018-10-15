@@ -14,6 +14,7 @@ const hexListTableBody = document.querySelector('table').tBodies[0];
 const hexListSelect = document.querySelector('.dictionary-list-selector');
 
 const fontFamilySelect = document.querySelector('.font-family-selector');
+const fontSizeSlider = document.querySelector('.font-size-slider');
 
 const inputElem = document.querySelector('#inputText');
 const msgOutput = document.querySelector('#msg');
@@ -154,6 +155,9 @@ function setFontFamiliesToSelector(arrayOfFonts, selectorEl) {
 
 setFontFamiliesToSelector(FONT_FAMILY_LIST, fontFamilySelect);
 
+fontSizeSlider.onchange = event => {
+  symbolsInHtmlOutput.style.fontSize = `${event.target.value || 20}px`;
+}
 
 
 if (navigator.userAgent.includes('Edge')) {
