@@ -111,6 +111,9 @@ for (const hexListName of HEXLIST_NAMES) {
 
 function forceSetList(listName, delay = 1000) {
   setTimeout(() => {
+    if (hexListSelect.value === "from URL") {
+      return false;
+    }
     let optIdx = 0;
     const reg = /[-_ \+\(\)]/g;
     [...hexListSelect].find((el, i) => {
@@ -123,7 +126,6 @@ function forceSetList(listName, delay = 1000) {
 }
 
 forceSetList(APP_DEFAULT_LIST, 1000);
-
 hexListSelect.addEventListener('change', () => processHexListChange());
 
 function processHexListChange(forceSet) {
