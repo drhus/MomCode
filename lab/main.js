@@ -23,6 +23,9 @@ const hexValuesOutput = document.querySelector('#hexValues');
 const symbolsInTextOutput = document.querySelector('#symbolsInText');
 const symbolsInHtmlOutput = document.querySelector('#symbolsInHtml');
 
+const momCodeSqare = document.querySelector('.momcode-square-separate');
+const momCodeSqareInjected = document.querySelector('.momcode-square-injected');
+
 // load hexlists from files
 for (const hexListName of HEXLIST_NAMES) {
   const scriptElem = document.createElement('script');
@@ -157,6 +160,8 @@ setFontFamiliesToSelector(FONT_FAMILY_LIST, fontFamilySelect);
 
 fontSizeSlider.onchange = event => {
   symbolsInHtmlOutput.style.fontSize = `${event.target.value || 20}px`;
+  momCodeSqare.style.fontSize = `${event.target.value || 20}px`;
+  momCodeSqareInjected.style.fontSize = `${event.target.value*0.7 || 20}px`;
 }
 
 
@@ -261,6 +266,9 @@ function encodeUserInput() {
   hexValuesOutput.value = hexValues.join(' ');
   symbolsInTextOutput.value = symbolsInText.join(',');
   symbolsInHtmlOutput.innerHTML = symbolsInHtml.join('');
+  momCodeSqare.innerHTML = symbolsInHtml.join('');
+  momCodeSqareInjected.innerHTML = symbolsInHtml.join('');
+  qr.makeCode(inputStr);
 }
 
 

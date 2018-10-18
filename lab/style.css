@@ -71,6 +71,54 @@ tbody:not(.empty) td:hover {
   padding: 1px;
 }
 
+.graphic-container {
+  height: 25vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+#qrcode-square {
+  position: relative;
+  flex: 0 0 25vh;
+  height: 100%;
+}
+
+#qrcode-square > canvas, #qrcode-square > img {
+  width: 100%;
+  height: 100%;
+}
+
+.momcode-square {
+  flex: 0 0 25vh;
+  height: 100%;
+  font-size: 36px;
+  background-color: rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  border: 2px solid black;
+}
+.momcode-square-injected {
+  position: absolute;
+  margin: 5%;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  border: none;
+  font-size: 26px;
+}
+
+.momcode-square > span {
+  width: 25%;
+  height: 25%;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+}
+
+
+
 
 /* section:first-child {
   margin-right: 30px;
