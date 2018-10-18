@@ -1,5 +1,5 @@
 const qrCodeEl = document.querySelector('#qrcode-square');
-const [ stretchSlider, bgOpacity, bgColor ] = document.querySelector('.injection-controls').getElementsByTagName("input");
+const [ stretchSlider, strokeWidth, bgOpacity, hPosSlider, vPosSlider, strokeColor, bgColor ] = document.querySelector('.injection-controls').getElementsByTagName("input");
 
 const qr = new QRCode(qrCodeEl, {
   width: 500,
@@ -11,6 +11,22 @@ const qr = new QRCode(qrCodeEl, {
 stretchSlider.onchange = event => {
   momCodeSqareInjected.classList.remove("stretch-0", "stretch-1", "stretch-2");
   momCodeSqareInjected.classList.add(`stretch-${event.target.value}`);
+}
+
+strokeWidth.onchange = event => {
+  momCodeSqareInjected.style.WebkitTextStrokeWidth = `${event.target.value}px`
+}
+
+strokeColor.onchange = event => {
+  momCodeSqareInjected.style.WebkitTextStrokeColor = event.target.value
+}
+
+hPosSlider.onchange = event => {
+  momCodeSqareInjected.style.left = `${event.target.value}%`
+}
+
+vPosSlider.onchange = event => {
+  momCodeSqareInjected.style.top = `${event.target.value}%`
 }
 
 bgOpacity.onchange = event => {

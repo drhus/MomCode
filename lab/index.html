@@ -491,18 +491,34 @@
             <div id="qrcode-square">
               <div class="momcode-square momcode-square-injected stretch-0"></div>
             </div>
-            <div class="momcode-square injection-controls">
-              <label>
-                Stretch:
+            <div class="injection-controls">
+              <label class="d-block w-100">
+                Stretch icons:
                 <input type="range" class="icons-stretch-slider d-block w-100" min="0" max="2" value="0" />
               </label>
-              <label>
+              <label class="d-block w-100">
+                Stroke width:
+                <input type="range" class="icon-stroke-width d-block w-100" min="0" max="3" value="0" />
+              </label>
+              <label class="d-block w-100">
                 Background opacity:
                 <input type="range" class="bg-opactiy-slider d-block w-100" min="0.1" max="0.9" value="0.7" step="0.1" />
               </label>
+              <label class="d-block w-100">
+                Horizontal:
+                <input type="range" class="h-pos-slider d-block w-100" min="0" max="50" value="45" step="5" />
+              </label>
+              <label class="d-block w-100">
+                Vertical:
+                <input type="range" class="v-pos-slider d-block w-100" min="0" max="50" value="45" step="5" />
+              </label>
+              <label>
+                Stroke color:
+                <input type="color" class="icon-stroke-color d-block w-100" value="#ffffff" />
+              </label>
               <label>
                 Background color:
-                <input type="color" class="bg-color-input d-block w-100" value="#00ff00" />
+                <input type="color" class="bg-color-input d-block w-100" value="#ffffff" />
               </label>
             </div>
             <div class="momcode-square momcode-square-separate"></div>
