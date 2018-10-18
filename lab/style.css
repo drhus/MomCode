@@ -72,15 +72,16 @@ tbody:not(.empty) td:hover {
 }
 
 .graphic-container {
-  height: 25vh;
+  height: 250px;
   display: flex;
   justify-content: space-around;
 }
 
 #qrcode-square {
   position: relative;
-  flex: 0 0 25vh;
+  flex: 0 0 250px;
   height: 100%;
+  border: 10px solid #ffffff;
 }
 
 #qrcode-square > canvas, #qrcode-square > img {
@@ -89,7 +90,7 @@ tbody:not(.empty) td:hover {
 }
 
 .momcode-square {
-  flex: 0 0 25vh;
+  flex: 0 0 250px;
   height: 100%;
   font-size: 36px;
   background-color: rgba(255, 255, 255, 0.7);

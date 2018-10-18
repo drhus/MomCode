@@ -520,8 +520,9 @@
                 Background color:
                 <input type="color" class="bg-color-input d-block w-100" value="#ffffff" />
               </label>
+              <button onclick="saveQRSquare()">Save as image</button>
             </div>
-            <div class="momcode-square momcode-square-separate"></div>
+            <div class="momcode-square momcode-square-separate stretch-0"></div>
           </div>
           <details>
             <summary style="text-align:right; margin-right: 2px; margin-top: 1em;" dir="rtl">Show&nbsp;instructions</summary>
@@ -541,6 +542,7 @@
   <script defer src="lib/lzma_worker-min.js"></script>
   <script defer src="lib/base64.min.js"></script>
   <script defer src="lib/qrcode.min.js"></script>
+  <script defer src="lib/html2canvas.min.js"></script>
   <script defer src="param.js"></script>
   <script defer src="convert.js"></script>
   <script defer src="encode.js"></script>

@@ -40,6 +40,20 @@ bgColor.onchange = event => {
   momCodeSqareInjected.style.backgroundColor = newColor;
 }
 
+function saveQRSquare() {
+  html2canvas(qrCodeEl, {
+    scale: 3,
+    logging: true
+  })
+    .then(canvas => {
+      const image = canvas.toDataURL("image/png");
+      const aLink = document.createElement('a');
+      aLink.setAttribute('download', 'momcode_square.png');
+      aLink.setAttribute('href', image.replace("image/png", "image/octet-stream"));
+      aLink.click();
+    });
+}
+
 function hexToRgba(hexVal, a) {
   hexVal = hexVal.replace('#', '');
   if ( hexVal.length === 3 ) {
