@@ -53,11 +53,6 @@ bgColor.onchange = event => {
 }
 
 function saveQRSquare() {
-  const { WebkitTextStrokeWidth, WebkitTextStrokeColor } = momCodeSqareInjected.style;
-  momCodeSqareInjected.style.WebkitTextStrokeWidth = null;
-  momCodeSqareInjected.style.WebkitTextStrokeColor = null;
-  momCodeSqareInjected.style.textShadow = `0 0 ${WebkitTextStrokeWidth} ${WebkitTextStrokeColor}`;
-
   html2canvas(qrCodeEl, {
     scale: 3,
     logging: true
