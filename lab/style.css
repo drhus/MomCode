@@ -81,6 +81,7 @@ tbody:not(.empty) td:hover {
   width: 250px;
   height: 100%;
   border: 3px solid #ffffff;
+  overflow: hidden;
 }
 
 #qrcode-square > canvas, #qrcode-square > img {
@@ -135,7 +136,8 @@ tbody:not(.empty) td:hover {
   font-size: 0.8em;
 }
 .injection-controls > label {
-  margin: 2px 0;
+  margin: 2px;
+  width: 45%;
 }
 
 

@@ -1,5 +1,5 @@
 const qrCodeEl = document.querySelector('#qrcode-square');
-const [ stretchSlider, strokeWidth, bgOpacity, hPosSlider, vPosSlider, strokeColor, bgColor ] = document.querySelector('.injection-controls').getElementsByTagName("input");
+const [ stretchSlider, strokeWidth, bgOpacity, hPosSlider, vPosSlider, wSlider, hSlider, strokeColor, bgColor ] = document.querySelector('.injection-controls').getElementsByTagName("input");
 
 const qr = new QRCode(qrCodeEl, {
   width: 500,
@@ -14,11 +14,15 @@ stretchSlider.onchange = event => {
 }
 
 strokeWidth.onchange = event => {
-  momCodeSqareInjected.style.WebkitTextStrokeWidth = `${event.target.value}px`
+  const currentValue = momCodeSqareInjected.style.textShadow || 'rgb(255, 255, 255) 0px 0px 0px';
+  momCodeSqareInjected.style.textShadow = currentValue.replace(/\d{0,2}px$/, `${event.target.value}px`);
+  // momCodeSqareInjected.style.WebkitTextStrokeWidth = `${event.target.value}px`
 }
 
 strokeColor.onchange = event => {
-  momCodeSqareInjected.style.WebkitTextStrokeColor = event.target.value
+  const currentValue = momCodeSqareInjected.style.textShadow || 'rgb(255, 255, 255) 0px 0px 0px';
+  momCodeSqareInjected.style.textShadow = currentValue.replace(/rgb\([\d, ]+\)/, event.target.value);
+  // momCodeSqareInjected.style.WebkitTextStrokeColor = event.target.value
 }
 
 hPosSlider.onchange = event => {
@@ -27,6 +31,14 @@ hPosSlider.onchange = event => {
 
 vPosSlider.onchange = event => {
   momCodeSqareInjected.style.top = `${event.target.value}%`
+}
+
+wSlider.onchange = event => {
+  momCodeSqareInjected.style.width = `${event.target.value}%`
+}
+
+hSlider.onchange = event => {
+  momCodeSqareInjected.style.height = `${event.target.value}%`
 }
 
 bgOpacity.onchange = event => {
