@@ -63,6 +63,8 @@ for (const hexListName of HEXLIST_NAMES) {
   if (urlList !== null) {
     l(urlList);
     forceSetList(urlList);
+  } else {
+    forceSetList(APP_DEFAULT_LIST);
   }
 
   let urlHexList = url.searchParams.get('hexListV2');
@@ -124,8 +126,6 @@ function forceSetList(listName, delay = 1000) {
     processHexListChange(hexListSelect[optIdx].value);
   }, delay);
 }
-
-forceSetList(APP_DEFAULT_LIST, 1000);
 hexListSelect.addEventListener('change', () => processHexListChange());
 
 function processHexListChange(forceSet) {
