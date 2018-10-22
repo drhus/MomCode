@@ -4,12 +4,10 @@
 <head>
   <title>Momcode :: Deterministic Visual Identifier | Test Lab v0.6</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="symbol_style.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href="https://fonts.googleapis.com/css?family=Lato|Oswald|Roboto" rel="stylesheet">
@@ -31,8 +29,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text form-control-sm">#</span>
                     </div>
-                    <input class="form-control form-control-sm" type="text" id="hexListNumber" data-prop-name="number"
-                      placeholder="Number" />
+                    <input class="form-control form-control-sm" type="text" id="hexListNumber" data-prop-name="number" placeholder="Number" />
                   </div>
                 </div>
                 <div class="form-group col-md-5">
@@ -40,8 +37,7 @@
                     <!-- <div class="input-group-prepend">
 						<span class="input-group-text form-control-sm"></span>
 					</div> -->
-                    <input class="form-control form-control-sm" type="text" id="hexListName" data-prop-name="name"
-                      placeholder="Name" />
+                    <input class="form-control form-control-sm" type="text" id="hexListName" data-prop-name="name" placeholder="Name" />
                   </div>
                 </div>
                 <div class="form-group col-md-4">
@@ -49,13 +45,11 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text form-control-sm">By</span>
                     </div>
-                    <input class="form-control form-control-sm" type="text" id="hexListAuthor" data-prop-name="author"
-                      placeholder="Author" />
+                    <input class="form-control form-control-sm" type="text" id="hexListAuthor" data-prop-name="author" placeholder="Author" />
                   </div>
                 </div>
                 <div class="form-group col-md-12">
-                  <textarea class="form-control form-control-sm" type="text" id="hexListComment" data-prop-name="comment"
-                    placeholder="Comment"></textarea>
+                  <textarea class="form-control form-control-sm" type="text" id="hexListComment" data-prop-name="comment" placeholder="Comment"></textarea>
                 </div>
               </div>
               <table class="table table-bordered table-xsm text-center">
@@ -385,29 +379,27 @@
                   </tr>
                 </tbody>
               </table>
-
-              <div class="pb-3 btn-group btn-group-toggle float-right">
-                <button type="button" class="btn btn-outline-primary" value="Export" id="exportHexList">Export</button>
-                <button type="button" class="btn btn-outline-secondary" value="Table URL" id="generateTableURL"
-                  data-toggle="tooltip" title="Generate a unique URL for your Momcode dictionary improvement proposal">Export
-                  URL</button>
-                <button type="button" class="btn btn-outline-secondary" value="View URL" id="generateViewURL"
-                  data-toggle="tooltip" title="Generate a unique URL for your Momcode dictionary improvement proposal, with all other inputs (Identifier, List and Mode)">View
-                  URL</button>
+              <div class="row">
+                <div class="col-12">
+                  <div class="pb-3 btn-group btn-group-toggle float-right">
+                    <button type="button" class="btn btn-outline-primary" value="Export" id="exportHexList">Export</button>
+                    <button type="button" class="btn btn-outline-secondary" value="Table URL" id="generateTableURL" data-toggle="tooltip" title="Generate a unique URL for your Momcode dictionary improvement proposal">Export
+                      URL</button>
+                    <button type="button" class="btn btn-outline-secondary" value="View URL" id="generateViewURL" data-toggle="tooltip" title="Generate a unique URL for your Momcode dictionary improvement proposal, with all other inputs (Identifier, List and Mode)">View
+                      URL</button>
+                  </div>
+                  <div class="form-group" id="show-GenerateURL">
+                  </div>
+                </div>
               </div>
-              <div class="form-group" id="show-GenerateURL">
+              <div class="row">
+                <div class="col-12">
+                  <details>
+                    <summary style="text-align:right; margin-right: 2px; margin-top: 1em;" dir="rtl">Show&nbsp;instructions</summary>
+                    <p style="clear: both;">soon</p>
+                  </details>
+                </div>
               </div>
-              <select class="font-family-selector custom-select d-block w-100">
-                <option value="">Select Font</option>
-              </select>
-              <input type="range" list="tickmarks" class="font-size-slider d-block w-100" min="12" max="60" value="36" />
-              <datalist id="tickmarks">
-                <option value="12" label="Small">
-                <option value="24">
-                <option value="36">
-                <option value="48">
-                <option value="60" label="Large">
-              </datalist>
             </fieldset>
           </div>
         </section>
@@ -422,12 +414,10 @@
           <label class="text-right float-right text-muted m-0 small">
             Test Lab v0.6
             <a href="https://github.com/drhus/Momcode" title="Source Code" class="btn btn-light"><i class="fab fa-github"></i></a>
-            <a href="https://github.com/drhus/Momcode/issues" title="Discussions, Suggestions and Bug Reporting" class="btn btn-light"><i
-                class="far fa-comment-alt"></i> Issues</a>
+            <a href="https://github.com/drhus/Momcode/issues" title="Discussions, Suggestions and Bug Reporting" class="btn btn-light"><i class="far fa-comment-alt"></i> Issues</a>
 
             <br>
-            <span style="cursor: pointer;" class="float-right text-muted font-weight-light small" id="myEthAddress"
-              title="Click to test it with your address"></span>
+            <span style="cursor: pointer;" class="float-right text-muted font-weight-light small" id="myEthAddress" title="Click to test it with your address"></span>
           </label>
         </nav>
 
@@ -456,8 +446,7 @@
                 <!-- <h6 class="mb-0">Mode</h6> -->
                 <div id="mode" class="text-left">
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="HEX" name="mode" class="custom-control-input" data-mode="HEX" checked=""
-                      required="">
+                    <input type="radio" id="HEX" name="mode" class="custom-control-input" data-mode="HEX" checked="" required="">
                     <label class="custom-control-label" for="HEX">HEX</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
@@ -465,8 +454,7 @@
                     <label class="custom-control-label" for="ASCII">ASCII</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="BITCOIN" name="mode" class="custom-control-input" data-mode="BITCOIN"
-                      required="">
+                    <input type="radio" id="BITCOIN" name="mode" class="custom-control-input" data-mode="BITCOIN" required="">
                     <label class="custom-control-label" for="BITCOIN">BITCOIN</label>
                   </div>
                 </div>
@@ -476,66 +464,246 @@
           </div>
 
           <div class="form-group">
-            <label>Momcode</label>
-            <div class="form-control text-center display-2" id="symbolsInHtml"></div>
-          </div>
-          <div class="form-group">
-            <label for="hexValues">Raw hex</label>
-            <textarea class="form-control form-control-sm" rows="1" id="hexValues" readonly></textarea>
-          </div>
-          <div class="form-group">
-            <label for="symbolsInText">Raw encoded hex</label>
-            <textarea class="form-control form-control-sm" id="symbolsInText" readonly></textarea>
-          </div>
-          <div class="graphic-container w-100">
-            <div id="qrcode-square">
-              <div class="momcode-square momcode-square-injected stretch-0"></div>
+            <div class="row">
             </div>
-            <div class="injection-controls">
-              <label>
-                Stretch icons:
-                <input type="range" class="icons-stretch-slider d-block w-100" min="0" max="2" value="0" />
-              </label>
-              <label>
-                Stroke width:
-                <input type="range" class="icon-stroke-width d-block w-100" min="0" max="10" value="0" />
-              </label>
-              <label>
-                Background opacity:
-                <input type="range" class="bg-opactiy-slider d-block w-100" min="0.1" max="0.9" value="0.7" step="0.1" />
-              </label>
-              <label>
-                Horizontal:
-                <input type="range" class="h-pos-slider d-block w-100" min="0" max="50" value="45" step="5" />
-              </label>
-              <label>
-                Vertical:
-                <input type="range" class="v-pos-slider d-block w-100" min="0" max="50" value="45" step="5" />
-              </label>
-              <label>
-                Width:
-                <input type="range" class="w-slider d-block w-100" min="30" max="100" value="50" step="5" />
-              </label>
-              <label>
-                Height:
-                <input type="range" class="h-slider d-block w-100" min="30" max="100" value="50" step="5" />
-              </label>
-              <label>
-                Stroke color:
-                <input type="color" class="icon-stroke-color d-block w-100" value="#ffffff" />
-              </label>
-              <label>
-                Background color:
-                <input type="color" class="bg-color-input d-block w-100" value="#ffffff" />
-              </label>
-              <button onclick="saveQRSquare()">Save as image</button>
-            </div>
-            <div class="momcode-square momcode-square-separate stretch-0"></div>
           </div>
-          <details>
-            <summary style="text-align:right; margin-right: 2px; margin-top: 1em;" dir="rtl">Show&nbsp;instructions</summary>
-            <p style="clear: both;">soon</p>
-          </details>
+
+          <div class="accordion md-accordion" id="accordionMomTests">
+            <div class="Xcard">
+              <div class="Xcard-header" id="headingOne">
+                <div class="row">
+                  <div class="col-6">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" title="Momcode string" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa fa-plus rotate-icon"></i>
+                      </button>
+                    </h5>
+                  </div>
+                  <div class="col-6 text-right">
+                    <!-- <select class="font-family-selector custom-select d-block w-100">
+                  <option value="">Select Font</option>
+                </select> -->
+                    <label class="small" for="size">size</label>
+                    <!-- <input id="fontSizeSlider" type="range" list="tickmarks" class="font-size-slider custom-range w-50" min="9" max="99" step="1" value="36" />-->
+                    <input type="range" class="custom-range w-50" title="Symbol Size" name="sizer" value="36" min="9" max="99" oninput='dynamicDisplayChange(this, "fontSize", ".momCodeOut");' />
+                    <span id="fontSizeDisplay" class="small">36px</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionMomTests">
+                <div class="card-body">
+                  <div class="form-control text-center display-2 momCodeOut" id="symbolsInHtml"></div>
+                  <div class="form-group">
+                    <label for="hexValues">Raw hex</label>
+                    <textarea class="form-control form-control-sm" rows="1" id="hexValues" readonly></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="symbolsInText">Raw encoded hex</label>
+                    <textarea class="form-control form-control-sm" id="symbolsInText" readonly></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+
+              <div class="card-header" role="tab" id="headingTwo">
+                <a data-toggle="collapse" data-parent="#accordionMomTests" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <h5 class="mb-0">
+                    Identicon-Momcode :: Test  <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMomTests">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col text-center">
+                      <label class="small" for="size">Image size</label>
+                      <input type="range" class="custom-range w-25" title="Identicon Image Size" name="blockSize" value="150" min="15" max="500" oninput='dynamicDisplayChange(this, "widthHeight", ".identiconOut");' />
+                    </div>
+                  </div>
+                  <div class="row p-2">
+                    <div class="mx-auto card p-1 m-2">
+                      <div id="identicon-square" class="momCodeOut identiconOut momcode-square momcode-square-separate stretch-4" style="font-size: 99px;"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2">
+                      <div id="identicon-square2" class="momCodeOut identiconOut momcode-square momcode-square-separate2 stretch-3" style="font-size: 55px;"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl2)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2">
+                      <div id="identicon-square3" class="momCodeOut identiconOut momcode-square momcode-circle-separate3 stretch-2" style="font-size: 45px;"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl3)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2">
+                      <div id="identicon-square4" class="momCodeOut identiconOut momcode-square momcode-square-separate4 stretch-4" style="font-size: 48px;"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl4)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2">
+                      <div id="identicon-square5" class="momCodeOut identiconOut momcode-square momcode-square-separate5 stretch-3" style="font-size: 36px;"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl5)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2">
+                      <div id="identicon-square6" class="momCodeOut identiconOut momcode-square momcode-circle-separate6 stretch-2"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl6)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row p-2">
+                    <div class="mx-auto card p-1 m-2 rounded-circle">
+                      <div id="identicon-circle" class="momCodeOut identiconOut momcode-circle momcode-circle-separate stretch-4" style="font-size: 99px;"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2 rounded-circle">
+                      <div id="identicon-circle2" class="momCodeOut identiconOut momcode-circle momcode-circle-separate2 stretch-3" style="font-size: 55px;"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi2)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2 rounded-circle">
+                      <div id="identicon-circle3" class="momCodeOut identiconOut momcode-circle momcode-square-separate3 stretch-2" style="font-size: 48px;"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi3)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2 rounded-circle">
+                      <div id="identicon-circle4" class="momCodeOut identiconOut momcode-circle momcode-circle-separate4 stretch-4" style="font-size: 45px;"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi4)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2 rounded-circle">
+                      <div id="identicon-circle5" class="momCodeOut identiconOut momcode-circle momcode-circle-separate5 stretch-3" style="font-size: 36px;"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi5)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                    <div class="mx-auto card p-1 m-2 rounded-circle">
+                      <div id="identicon-circle6" class="momCodeOut identiconOut momcode-circle momcode-square-separate6 stretch-2"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi6)" id="download">
+                        <span>Download image</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--
+            <div class="card">
+
+              <div class="card-header" role="tab" id="headingTwo2">
+                <a data-toggle="collapse" data-parent="#accordionMomTests" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                  <h5 class="mb-0">
+                    Identicon-Momcode :: Test B <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordionMomTests">
+                <div class="card-body">
+
+                </div>
+              </div>
+            </div>
+          -->
+            <div class="card">
+              <div class="card-header" role="tab" id="headingThree">
+                <a data-toggle="collapse" data-parent="#accordionMomTests" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <h5 class="mb-0">
+                    QR-Momcode :: Test Model A <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionMomTests">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-4 card card-body bg-light">
+                      <form>
+                        <div class="row">
+                          <div class="col-sm-12 injection-controls">
+                            <div class="row">
+                              <div class="col-6 small">
+                                <label>Horizontal</label>
+                                <input type="range" id="h-pos-slider" class="custom-range" min="0" max="50" value="20" step="1" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Vertical</label>
+                                <input type="range" id="v-pos-slider" class="custom-range" min="0" max="50" value="20" step="1" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Width</label>
+                                <input type="range" id="w-slider" class="custom-range" min="30" max="100" value="75" step="1" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Height</label>
+                                <input type="range" id="h-slider" class="custom-range" min="30" max="100" value="75" step="1" />
+                              </div>
+                              <div class="col-12 small">
+                                <label>Stretch icons</label>
+                                <input type="range" id="icons-stretch-slider" class="custom-range" min="0" max="6" value="4" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Background color:</label>
+                                <input type="color" id="bg-color-input" class="custom-range" value="#ffffff" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Background opacity</label>
+                                <input type="range" id="bg-opactiy-slider" class="custom-range" min="0" max="0.9" value="0" step="0.1" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Stroke color:</label>
+                                <input type="color" id="icon-stroke-color" class="custom-range" value="#ffffff" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Stroke width</label>
+                                <input type="range" id="icon-stroke-width" class="custom-range" min="0" max="20" value="7" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+
+                    </div>
+                    <div class="mx-auto text-center">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="graphic-container w-100 card">
+                            <div id="qrcode-square">
+                              <div class="momCodeOut momcode-square momcode-square-injected stretch-4"></div>
+                            </div>
+                            <div class="canvas-overlay" onclick="saveQRSquare()" id="download">
+                              <span>Download image</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
     </main>
@@ -545,6 +713,11 @@
       </div>
     </footer>
   </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ethjs@0.3.4/dist/ethjs.min.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-30358627-7"></script>
   <script defer src="lib/lzma_worker-min.js"></script>
@@ -560,25 +733,28 @@
   <script>
     window.addEventListener('load', function() {
       // Load WEB3 Check wether it's already injected by something else (like Metamask or Parity Chrome plugin)
-      if(typeof web3 !== 'undefined') {
-          web3 = new Web3(web3.currentProvider);
-      // Or connect to a node
+      if (typeof web3 !== 'undefined') {
+        web3 = new Web3(web3.currentProvider);
+        // Or connect to a node
       } else {
-          web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
       }
       // Check the connection
-      if(!web3.isConnected()) {
-          console.error("Not connected");
+      if (!web3.isConnected()) {
+        console.error("Not connected");
       }
       var account = web3.eth.accounts[0];
       //document.getElementById("inputText").value = account;
       document.getElementById("myEthAddress").innerHTML = account;
-        });
+    });
   </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
     gtag('config', 'UA-30358627-7');
   </script>

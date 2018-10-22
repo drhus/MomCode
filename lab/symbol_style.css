@@ -34,7 +34,7 @@
    display: inline-block;
    margin-right: 1%;
    font-size: 20px;
-   font-weight: 600;   
+   font-weight: 600;
 }
 
 #symbolsInHtml > .fas {
@@ -51,11 +51,13 @@ span + span {
 .r,
 .red {
   color: red;
+  text-shadow: 0px 0px 1px white;
 }
 
 .o,
 .orange {
   color: orange;
+  text-shadow: 0px 0px 1px white;
 }
 
 .y,
@@ -69,22 +71,25 @@ span + span {
 .g,
 .green {
   color: green;
+  text-shadow: 0px 0px 1px white;
 }
 
 .b,
 .blue {
   color: blue;
+  text-shadow: 0px 0px 1px white;
 }
 
 .p,
 .purple {
   color: purple;
+  text-shadow: 0px 0px 1px white;
 }
 
 .w,
 .white {
   color: white;
-  text-shadow: 0px 0px 1px black;  
+  text-shadow: 0px 0px 1px black;
   /* color stroke
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; */
 }
@@ -101,6 +106,7 @@ span + span {
 .gr,
 .gray {
   color: gray;
+  text-shadow: 0px 0px 1px white;
   /*text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;*/
 }
 
@@ -110,13 +116,13 @@ span + span {
 .bg-red {
   color: white;
   background-color: red;
-  /*border-radius: 5px;*/  
+  /*border-radius: 5px;*/
 }
 
 .xo,
 .bg-o,
 .bg-orange {
-  color: white;	
+  color: white;
   background-color: orange;
 }
 
@@ -171,7 +177,7 @@ span + span {
 }
 
 
-/* 
+/*
 .fa-triangle {
   content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='24' width='24' viewBox='0 0 24 24'><path d='M1,21H23L12,2' /></svg>")
 }
@@ -238,19 +244,18 @@ span + span {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; 
+  text-fill-color: transparent;
 /*  color: black;
-  text-shadow: 0px 0px 1px white;  
+  text-shadow: 0px 0px 1px white;
   */
 }
 
 .white-strips {
    color: white;
-  text-shadow: 0px 0px 1px black;	
+  text-shadow: 0px 0px 1px black;
   /* background: repeating-linear-gradient( 180deg, black, black 2px, white 0px, white 8px);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent; */
 }
-

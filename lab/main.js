@@ -13,8 +13,9 @@ let mode = APP_DEFAULT_MODE;
 const hexListTableBody = document.querySelector('table').tBodies[0];
 const hexListSelect = document.querySelector('.dictionary-list-selector');
 
-const fontFamilySelect = document.querySelector('.font-family-selector');
-const fontSizeSlider = document.querySelector('.font-size-slider');
+//const fontFamilySelect = document.querySelector('.font-family-selector');
+const fontSizeSlider = document.querySelector('#fontSizeSlider'); // #fontSizeSlider change to jquer https://jsfiddle.net/drhus/9j4crfew/
+const fontSizeDisplayOutput = document.querySelector('#fontSizeDisplay');
 
 const inputElem = document.querySelector('#inputText');
 const msgOutput = document.querySelector('#msg');
@@ -23,7 +24,21 @@ const hexValuesOutput = document.querySelector('#hexValues');
 const symbolsInTextOutput = document.querySelector('#symbolsInText');
 const symbolsInHtmlOutput = document.querySelector('#symbolsInHtml');
 
+
 const momCodeSqare = document.querySelector('.momcode-square-separate');
+const momCodeSqare2 = document.querySelector('.momcode-square-separate2');
+const momCodeSqare3 = document.querySelector('.momcode-square-separate3');
+const momCodeSqare4 = document.querySelector('.momcode-square-separate4');
+const momCodeSqare5 = document.querySelector('.momcode-square-separate5');
+const momCodeSqare6 = document.querySelector('.momcode-square-separate6');
+
+const momCodeCircle = document.querySelector('.momcode-circle-separate');
+const momCodeCircle2 = document.querySelector('.momcode-circle-separate2');
+const momCodeCircle3 = document.querySelector('.momcode-circle-separate3');
+const momCodeCircle4 = document.querySelector('.momcode-circle-separate4');
+const momCodeCircle5 = document.querySelector('.momcode-circle-separate5');
+const momCodeCircle6 = document.querySelector('.momcode-circle-separate6');
+
 const momCodeSqareInjected = document.querySelector('.momcode-square-injected');
 
 // load hexlists from files
@@ -126,6 +141,8 @@ function forceSetList(listName, delay = 1000) {
     processHexListChange(hexListSelect[optIdx].value);
   }, delay);
 }
+
+//forceSetList(APP_DEFAULT_LIST, 1000);
 hexListSelect.addEventListener('change', () => processHexListChange());
 
 function processHexListChange(forceSet) {
@@ -158,12 +175,50 @@ function setFontFamiliesToSelector(arrayOfFonts, selectorEl) {
   })
 }
 
-setFontFamiliesToSelector(FONT_FAMILY_LIST, fontFamilySelect);
 
+/*
+setFontFamiliesToSelector(FONT_FAMILY_LIST, fontFamilySelect);
+*/
+/*
 fontSizeSlider.onchange = event => {
   symbolsInHtmlOutput.style.fontSize = `${event.target.value || 20}px`;
-  momCodeSqare.style.fontSize = `${event.target.value || 20}px`;
-  momCodeSqareInjected.style.fontSize = `${event.target.value*0.7 || 20}px`;
+  momCodeSqare.style.fontSize = `${event.target.value*2.618 || 20}px`;
+  momCodeSqare2.style.fontSize = `${event.target.value*1.618 || 20}px`;
+  momCodeSqare3.style.fontSize = `${event.target.value || 20}px`;
+  momCodeSqare4.style.fontSize = `${event.target.value || 20}px`;
+  momCodeSqare5.style.fontSize = `${event.target.value || 20}px`;
+  momCodeSqare6.style.fontSize = `${event.target.value || 20}px`;
+
+  momCodeCircle.style.fontSize = `${event.target.value*2.618 || 20}px`;
+  momCodeCircle2.style.fontSize = `${event.target.value*1.618 || 20}px`;
+  momCodeCircle3.style.fontSize = `${event.target.value || 20}px`;
+  momCodeCircle4.style.fontSize = `${event.target.value || 20}px`;
+  momCodeCircle5.style.fontSize = `${event.target.value || 20}px`;
+  momCodeCircle6.style.fontSize = `${event.target.value || 20}px`;
+
+  momCodeSqareInjected.style.fontSize = `${event.target.value*0.618 || 20}px`;
+  fontSizeDisplayOutput.innerHTML = `${event.target.value || 20}px`;
+}
+*/
+
+// General Display Changer
+// .momCodeOut :for all momcode output in html
+
+function dynamicDisplayChange(elem, target, id) {
+  switch (target){
+      case 'widthHeight':
+        $(id).css('width', elem.value + 'px').css('height', elem.value + 'px');
+        break;
+
+      case 'fontSize':
+        $(id).css('font-size', elem.value + 'px'); // .identiconOut .momCodeOut
+        $('.momcode-square-separate').css('font-size', elem.value*3 + 'px');
+        $('.momcode-square-separate2').css('font-size', elem.value*1.5 + 'px');
+        $('.momcode-circle-separate').css('font-size', elem.value*3 + 'px');
+        $('.momcode-circle-separate2').css('font-size', elem.value*1.5 + 'px');
+        fontSizeDisplay.innerHTML = (elem.value + 'px');
+        break;
+    }
 }
 
 
@@ -269,6 +324,17 @@ function encodeUserInput() {
   symbolsInTextOutput.value = symbolsInText.join(',');
   symbolsInHtmlOutput.innerHTML = symbolsInHtml.join('');
   momCodeSqare.innerHTML = symbolsInHtml.join('');
+  momCodeSqare2.innerHTML = symbolsInHtml.join('');
+  momCodeSqare3.innerHTML = symbolsInHtml.join('');
+  momCodeSqare4.innerHTML = symbolsInHtml.join('');
+  momCodeSqare5.innerHTML = symbolsInHtml.join('');
+  momCodeSqare6.innerHTML = symbolsInHtml.join('');
+  momCodeCircle.innerHTML = symbolsInHtml.join('');
+  momCodeCircle2.innerHTML = symbolsInHtml.join('');
+  momCodeCircle3.innerHTML = symbolsInHtml.join('');
+  momCodeCircle4.innerHTML = symbolsInHtml.join('');
+  momCodeCircle5.innerHTML = symbolsInHtml.join('');
+  momCodeCircle6.innerHTML = symbolsInHtml.join('');
   momCodeSqareInjected.innerHTML = symbolsInHtml.join('');
   qr.makeCode(inputStr);
 }

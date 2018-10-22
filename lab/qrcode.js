@@ -1,5 +1,29 @@
 const qrCodeEl = document.querySelector('#qrcode-square');
-const [ stretchSlider, strokeWidth, bgOpacity, hPosSlider, vPosSlider, wSlider, hSlider, strokeColor, bgColor ] = document.querySelector('.injection-controls').getElementsByTagName("input");
+const qrIdenticonEl = document.querySelector('#identicon-square');
+const qrIdenticonEl2 = document.querySelector('#identicon-square2');
+const qrIdenticonEl3 = document.querySelector('#identicon-square3');
+const qrIdenticonEl4 = document.querySelector('#identicon-square4');
+const qrIdenticonEl5 = document.querySelector('#identicon-square5');
+const qrIdenticonEl6 = document.querySelector('#identicon-square6');
+
+const qrIdenticonCi = document.querySelector('#identicon-circle');
+const qrIdenticonCi2 = document.querySelector('#identicon-circle2');
+const qrIdenticonCi3 = document.querySelector('#identicon-circle3');
+const qrIdenticonCi4 = document.querySelector('#identicon-circle4');
+const qrIdenticonCi5 = document.querySelector('#identicon-circle5');
+const qrIdenticonCi6 = document.querySelector('#identicon-circle6');
+
+const stretchSlider = document.querySelector('#icons-stretch-slider');
+const strokeWidth = document.querySelector('#icon-stroke-width');
+const bgOpacity = document.querySelector('#bg-opactiy-slider');
+const hPosSlider = document.querySelector('#h-pos-slider');
+const vPosSlider = document.querySelector('#v-pos-slider');
+const wSlider = document.querySelector('#w-slider');
+const hSlider = document.querySelector('#h-slider');
+const strokeColor = document.querySelector('#icon-stroke-color');
+const bgColor = document.querySelector('#bg-color-input');
+
+// const [ stretchSlider, strokeWidth, bgOpacity, hPosSlider, vPosSlider, wSlider, hSlider, strokeColor, bgColor ] = document.querySelector('.injection-controls').getElementsByTagName("input");
 
 const qr = new QRCode(qrCodeEl, {
   width: 500,
@@ -9,7 +33,7 @@ const qr = new QRCode(qrCodeEl, {
 
 
 stretchSlider.onchange = event => {
-  momCodeSqareInjected.classList.remove("stretch-0", "stretch-1", "stretch-2");
+  momCodeSqareInjected.classList.remove("stretch-0", "stretch-1", "stretch-2", "stretch-3", "stretch-4", "stretch-5", "stretch-6");
   momCodeSqareInjected.classList.add(`stretch-${event.target.value}`);
 }
 
@@ -65,6 +89,22 @@ function saveQRSquare() {
       aLink.click();
     });
 }
+
+function saveIdenticonSquare(y) {
+  html2canvas(y,  {
+    scale: 1,
+    logging: true
+  })
+    .then(canvas => {
+      const image = canvas.toDataURL("image/png");
+      const aLink = document.createElement('a');
+      const dateNow = new Date().toISOString();
+      aLink.setAttribute('download', 'Momcode-Identicon_' + dateNow + '.png');
+      aLink.setAttribute('href', image.replace("image/png", "image/octet-stream"));
+      aLink.click();
+    });
+}
+
 
 function hexToRgba(hexVal, a) {
   hexVal = hexVal.replace('#', '');
