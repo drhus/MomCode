@@ -208,6 +208,7 @@ function dynamicDisplayChange(elem, target, id) {
   switch (target){
       case 'widthHeight':
         $(id).css('width', elem.value + 'px').css('height', elem.value + 'px');
+        imageSizeDisplay.innerHTML = (elem.value + 'px');
         break;
 
       case 'fontSize':

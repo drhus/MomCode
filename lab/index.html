@@ -485,7 +485,7 @@
                 </select> -->
                     <label class="small" for="size">size</label>
                     <!-- <input id="fontSizeSlider" type="range" list="tickmarks" class="font-size-slider custom-range w-50" min="9" max="99" step="1" value="36" />-->
-                    <input type="range" class="custom-range w-50" title="Symbol Size" name="sizer" value="36" min="9" max="99" oninput='dynamicDisplayChange(this, "fontSize", ".momCodeOut");' />
+                    <input type="range" class="custom-range w-50" title="Symbol Size" name="sizer" value="36" min="3" max="99" oninput='dynamicDisplayChange(this, "fontSize", ".momCodeOut");' />
                     <span id="fontSizeDisplay" class="small">36px</span>
                   </div>
                 </div>
@@ -523,6 +523,7 @@
                     <div class="col text-center">
                       <label class="small" for="size">Image size</label>
                       <input type="range" class="custom-range w-25" title="Identicon Image Size" name="blockSize" value="150" min="15" max="500" oninput='dynamicDisplayChange(this, "widthHeight", ".identiconOut");' />
+                      <span id="imageSizeDisplay" class="small">150px</span>
                     </div>
                   </div>
                   <div class="row p-2">
