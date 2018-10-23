@@ -4,19 +4,20 @@ const HEXLIST_DIRECTORY = 'hexlist';
 
 const HEXLIST_NAMES = [
   'Momcode-209',
-  'Momcode-210', 
+  'Momcode-210',
   'Momcode-211',
   'Momcode-220',
   'Momcode-220A (Font Awesome)',
-  'Momcode-225A (Font Awesome)', 
+  'Momcode-225A (Font Awesome)',
   'Momcode-225B (Colorblind-friendly + FA)',
-  'Momcode-230A (Font Awesome)',   
+  'Momcode-230A (Font Awesome)',
   'Momcode-301 (ASCII + Frequency)',
-  '4Fun - PGP word list (Even Words)',  
-  '4Fun - PGP word list (Odd Words)',    
+  'Momcode-230B (Font Awesome - Invert)',
+  '4Fun - PGP word list (Even Words)',
+  '4Fun - PGP word list (Odd Words)',
   '4Fun - IdentiAddress I',
   '4Fun - IdentiAddress II',
-  '4Fun - IdentiAddress III', 
+  '4Fun - IdentiAddress III',
   '4Fun - Emoji-Random',
 ];
 
@@ -56,7 +57,7 @@ const HEXLIST_URL_ENCODE_COLOR_MAP = {
   'green': 'g',
   'blue': 'b',
   'purple': 'p',
-  'white': 'w',  
+  'white': 'w',
   'black': 'k',
   'bg-red': '1',
   'bg-orange': '2',
@@ -64,9 +65,9 @@ const HEXLIST_URL_ENCODE_COLOR_MAP = {
   'bg-green': '4',
   'bg-blue': '5',
   'bg-purple': '6',
-  'bg-white': '7',  
-  'bg-black': '8',  
-  'bg-gray': '9', 
+  'bg-white': '7',
+  'bg-black': '8',
+  'bg-gray': '9',
 };
 
 const HEXLIST_URL_DECODE_COLOR_MAP = {
@@ -97,7 +98,7 @@ const HEXLIST_URL_ENCODE_STYLE_MAP = {
   'bold': 'l',
   'underline': 'u',
   'strikethrough': 's',
-  'overline': 'q',  
+  'overline': 'q',
   'italic': 'i',
   'tiny': 't',
 };
