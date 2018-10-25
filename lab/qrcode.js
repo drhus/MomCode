@@ -44,7 +44,8 @@ stretchSlider.onchange = event => {
 }
 
 strokeWidth.onchange = event => {
-  const currentValue = momCodeSqareInjected.style.textShadow || 'rgb(255, 255, 255) 0px 0px 0px';
+  //const currentValue = momCodeSqareInjected.style.textShadow || 'rgb(255, 255, 255) 0px 0px 0px';
+  const currentValue = momCodeSqareInjected.style.textShadow || 'rgb(255, 255, 255) -1px -1px 0px, rgb(255, 255, 255) 1px -1px 0px, rgb(255, 255, 255) -1px 1px 0px, rgb(255, 255, 255) 1px 1px 0px';
   momCodeSqareInjected.style.textShadow = currentValue.replace(/\d{0,2}px$/, `${event.target.value}px`);
   // momCodeSqareInjected.style.WebkitTextStrokeWidth = `${event.target.value}px`
 }

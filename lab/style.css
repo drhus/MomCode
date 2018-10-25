@@ -130,6 +130,10 @@ tbody:not(.empty) td:hover {
   -webkit-text-stroke-color: inherit;
 }
 
+.qrcode-mom>span {
+  text-shadow: inherit;
+}
+
 .stretch-0>span {
   width: 5%;
   height: 5%;
