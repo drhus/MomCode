@@ -415,10 +415,17 @@
             Test Lab v0.6
             <a href="https://github.com/drhus/Momcode" title="Source Code" class="btn btn-light"><i class="fab fa-github"></i></a>
             <a href="https://github.com/drhus/Momcode/issues" title="Discussions, Suggestions and Bug Reporting" class="btn btn-light"><i class="far fa-comment-alt"></i> Issues</a>
-
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target=".bd-example-modal-lg">About</button>
             <br>
             <span style="cursor: pointer;" class="float-right text-muted font-weight-light small" id="myEthAddress" title="Click to test it with your address"></span>
           </label>
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                ...
+              </div>
+            </div>
+          </div>
         </nav>
 
 
@@ -518,87 +525,159 @@
               </div>
 
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionMomTests">
-                <div class="card-body">
+                <div class="card-body identicon-card-body">
                   <div class="row">
                     <div class="col text-center">
                       <label class="small" for="size">Image size</label>
-                      <input type="range" class="custom-range w-25" title="Identicon Image Size" name="blockSize" value="150" min="15" max="500" oninput='dynamicDisplayChange(this, "widthHeight", ".identiconOut");' />
-                      <span id="imageSizeDisplay" class="small">150px</span>
+                      <input type="range" class="custom-range w-25" title="Identicon Image Size" name="blockSize" value="32" min="8" max="256" oninput='dynamicDisplayChange(this, "widthHeight", ".identiconOut");' />
+                      <span id="imageSizeDisplay" class="small">32px</span>
                     </div>
                   </div>
                   <div class="row p-2">
-                    <div class="mx-auto card p-1 m-2">
-                      <div id="identicon-square" class="momCodeOut identiconOut momcode-square momcode-square-separate stretch-4" style="font-size: 99px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square" class="momCodeOut identiconOut momcode-square momcode-square-separate stretch-4" style="font-size: 9px; width: 32px; height: 32px"></div>
                       <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2">
-                      <div id="identicon-square2" class="momCodeOut identiconOut momcode-square momcode-square-separate2 stretch-3" style="font-size: 55px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square2" class="momCodeOut identiconOut momcode-square momcode-square-separate2 stretch-3" style="font-size: 14px; width: 64px; height: 64px"></div>
                       <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl2)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2">
-                      <div id="identicon-square3" class="momCodeOut identiconOut momcode-square momcode-circle-separate3 stretch-2" style="font-size: 45px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square3" class="momCodeOut identiconOut momcode-square momcode-square-separate3 stretch-2" style="font-size: 22px; width: 128px; height: 128px"></div>
                       <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl3)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2">
-                      <div id="identicon-square4" class="momCodeOut identiconOut momcode-square momcode-square-separate4 stretch-4" style="font-size: 48px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square4" class="momCodeOut identiconOut momcode-square momcode-square-separate4 stretch-4" style="font-size: 15px; width: 32px; height: 32px"></div>
                       <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl4)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2">
-                      <div id="identicon-square5" class="momCodeOut identiconOut momcode-square momcode-square-separate5 stretch-3" style="font-size: 36px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square5" class="momCodeOut identiconOut momcode-square momcode-square-separate5 stretch-3" style="font-size: 26px; width: 64px; height: 64px"></div>
                       <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl5)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2">
-                      <div id="identicon-square6" class="momCodeOut identiconOut momcode-square momcode-circle-separate6 stretch-2"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square6" class="momCodeOut identiconOut momcode-square momcode-square-separate6 stretch-2" style="font-size: 42px; width: 128px; height: 128px"></div>
                       <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl6)" id="download">
                         <span>Download image</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square7" class="momCodeOut identiconOut momcode-square momcode-square-separate7 stretch-4" style="font-size: 9px; width: 32px; height: 32px"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl7)" id="download">
+                        <span>Download image</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square8" class="momCodeOut identiconOut momcode-square momcode-square-separate8 stretch-3" style="font-size: 9px; width: 64px; height: 64px"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl8)" id="download">
+                        <span>Download image</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1">
+                      <div id="identicon-square9" class="momCodeOut identiconOut momcode-square momcode-square-separate9 stretch-2" style="font-size: 9px; width: 128px; height: 128px"></div>
+                      <div class="canvas-overlay" onclick="saveIdenticonSquare(qrIdenticonEl9)" id="download">
+                        <span>Download image</span>
+                      </div>
                       </div>
                     </div>
                   </div>
                   <div class="row p-2">
-                    <div class="mx-auto card p-1 m-2 rounded-circle">
-                      <div id="identicon-circle" class="momCodeOut identiconOut momcode-circle momcode-circle-separate stretch-4" style="font-size: 99px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle" class="momCodeOut identiconOut momcode-circle momcode-circle-separate stretch-4" style="font-size: 9px; width: 32px; height: 32px"></div>
                       <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2 rounded-circle">
-                      <div id="identicon-circle2" class="momCodeOut identiconOut momcode-circle momcode-circle-separate2 stretch-3" style="font-size: 55px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle2" class="momCodeOut identiconOut momcode-circle momcode-circle-separate2 stretch-3" style="font-size: 14px; width: 64px; height: 64px"></div>
                       <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi2)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2 rounded-circle">
-                      <div id="identicon-circle3" class="momCodeOut identiconOut momcode-circle momcode-square-separate3 stretch-2" style="font-size: 48px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle3" class="momCodeOut identiconOut momcode-circle momcode-circle-separate3 stretch-2" style="font-size: 22px; width: 128px; height: 128px"></div>
                       <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi3)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2 rounded-circle">
-                      <div id="identicon-circle4" class="momCodeOut identiconOut momcode-circle momcode-circle-separate4 stretch-4" style="font-size: 45px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle4" class="momCodeOut identiconOut momcode-circle momcode-circle-separate4 stretch-4" style="font-size: 15px; width: 32px; height: 32px"></div>
                       <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi4)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2 rounded-circle">
-                      <div id="identicon-circle5" class="momCodeOut identiconOut momcode-circle momcode-circle-separate5 stretch-3" style="font-size: 36px;"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle5" class="momCodeOut identiconOut momcode-circle momcode-circle-separate5 stretch-3" style="font-size: 26px; width: 64px; height: 64px"></div>
                       <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi5)" id="download">
                         <span>Download image</span>
                       </div>
+                      </div>
                     </div>
-                    <div class="mx-auto card p-1 m-2 rounded-circle">
-                      <div id="identicon-circle6" class="momCodeOut identiconOut momcode-circle momcode-square-separate6 stretch-2"></div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle6" class="momCodeOut identiconOut momcode-circle momcode-circle-separate6 stretch-2" style="font-size: 42px; width: 128px; height: 128px"></div>
                       <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi6)" id="download">
                         <span>Download image</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle7" class="momCodeOut identiconOut momcode-circle momcode-circle-separate7 stretch-4" style="font-size: 9px; width: 32px; height: 32px"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi7)" id="download">
+                        <span>Download image</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle8" class="momCodeOut identiconOut momcode-circle momcode-circle-separate8 stretch-3" style="font-size: 9px; width: 64px; height: 64px"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi8)" id="download">
+                        <span>Download image</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="mx-auto m-2">
+                      <div class="card p-1 rounded-circle">
+                      <div id="identicon-circle9" class="momCodeOut identiconOut momcode-circle momcode-circle-separate9 stretch-2" style="font-size: 9px; width: 128px; height: 128px"></div>
+                      <div class="canvas-overlay rounded-circle" onclick="saveIdenticonSquare(qrIdenticonCi9)" id="download">
+                        <span>Download image</span>
+                      </div>
                       </div>
                     </div>
                   </div>

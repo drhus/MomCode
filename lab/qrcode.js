@@ -5,6 +5,9 @@ const qrIdenticonEl3 = document.querySelector('#identicon-square3');
 const qrIdenticonEl4 = document.querySelector('#identicon-square4');
 const qrIdenticonEl5 = document.querySelector('#identicon-square5');
 const qrIdenticonEl6 = document.querySelector('#identicon-square6');
+const qrIdenticonEl7 = document.querySelector('#identicon-square7');
+const qrIdenticonEl8 = document.querySelector('#identicon-square8');
+const qrIdenticonEl9 = document.querySelector('#identicon-square9');
 
 const qrIdenticonCi = document.querySelector('#identicon-circle');
 const qrIdenticonCi2 = document.querySelector('#identicon-circle2');
@@ -12,6 +15,9 @@ const qrIdenticonCi3 = document.querySelector('#identicon-circle3');
 const qrIdenticonCi4 = document.querySelector('#identicon-circle4');
 const qrIdenticonCi5 = document.querySelector('#identicon-circle5');
 const qrIdenticonCi6 = document.querySelector('#identicon-circle6');
+const qrIdenticonCi7 = document.querySelector('#identicon-circle7');
+const qrIdenticonCi8 = document.querySelector('#identicon-circle8');
+const qrIdenticonCi9 = document.querySelector('#identicon-circle9');
 
 const stretchSlider = document.querySelector('#icons-stretch-slider');
 const strokeWidth = document.querySelector('#icon-stroke-width');

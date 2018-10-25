@@ -258,6 +258,12 @@ datalist option::before {
   float: right;
 }
 
+.identicon-card-body .row {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
 /* section:first-child {
   margin-right: 30px;
 }

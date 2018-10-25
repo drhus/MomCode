@@ -31,6 +31,9 @@ const momCodeSqare3 = document.querySelector('.momcode-square-separate3');
 const momCodeSqare4 = document.querySelector('.momcode-square-separate4');
 const momCodeSqare5 = document.querySelector('.momcode-square-separate5');
 const momCodeSqare6 = document.querySelector('.momcode-square-separate6');
+const momCodeSqare7 = document.querySelector('.momcode-square-separate7');
+const momCodeSqare8 = document.querySelector('.momcode-square-separate8');
+const momCodeSqare9 = document.querySelector('.momcode-square-separate9');
 
 const momCodeCircle = document.querySelector('.momcode-circle-separate');
 const momCodeCircle2 = document.querySelector('.momcode-circle-separate2');
@@ -38,6 +41,9 @@ const momCodeCircle3 = document.querySelector('.momcode-circle-separate3');
 const momCodeCircle4 = document.querySelector('.momcode-circle-separate4');
 const momCodeCircle5 = document.querySelector('.momcode-circle-separate5');
 const momCodeCircle6 = document.querySelector('.momcode-circle-separate6');
+const momCodeCircle7 = document.querySelector('.momcode-circle-separate7');
+const momCodeCircle8 = document.querySelector('.momcode-circle-separate8');
+const momCodeCircle9 = document.querySelector('.momcode-circle-separate9');
 
 const momCodeSqareInjected = document.querySelector('.momcode-square-injected');
 
@@ -207,16 +213,36 @@ fontSizeSlider.onchange = event => {
 function dynamicDisplayChange(elem, target, id) {
   switch (target){
       case 'widthHeight':
-        $(id).css('width', elem.value + 'px').css('height', elem.value + 'px');
+      //  $(id).css('width', elem.value + 'px').css('height', elem.value + 'px');
+        $('.momcode-square-separate').css('width', elem.value + 'px').css('height', elem.value + 'px');
+        $('.momcode-square-separate2').css('width', elem.value*2 + 'px').css('height', elem.value*2 + 'px');
+        $('.momcode-square-separate3').css('width', elem.value*4 + 'px').css('height', elem.value*4 + 'px');
+        $('.momcode-square-separate4').css('width', elem.value + 'px').css('height', elem.value + 'px');
+        $('.momcode-square-separate5').css('width', elem.value*2 + 'px').css('height', elem.value*2 + 'px');
+        $('.momcode-square-separate6').css('width', elem.value*4 + 'px').css('height', elem.value*4 + 'px');
+        $('.momcode-circle-separate').css('width', elem.value + 'px').css('height', elem.value + 'px');
+        $('.momcode-circle-separate2').css('width', elem.value*2 + 'px').css('height', elem.value*2 + 'px');
+        $('.momcode-circle-separate3').css('width', elem.value*4 + 'px').css('height', elem.value*4 + 'px');
+        $('.momcode-circle-separate4').css('width', elem.value + 'px').css('height', elem.value + 'px');
+        $('.momcode-circle-separate5').css('width', elem.value*2 + 'px').css('height', elem.value*2 + 'px');
+        $('.momcode-circle-separate6').css('width', elem.value*4 + 'px').css('height', elem.value*4 + 'px');
         imageSizeDisplay.innerHTML = (elem.value + 'px');
         break;
 
       case 'fontSize':
         $(id).css('font-size', elem.value + 'px'); // .identiconOut .momCodeOut
-        $('.momcode-square-separate').css('font-size', elem.value*3 + 'px');
+        $('.momcode-square-separate').css('font-size', elem.value*1 + 'px');
         $('.momcode-square-separate2').css('font-size', elem.value*1.5 + 'px');
-        $('.momcode-circle-separate').css('font-size', elem.value*3 + 'px');
+        $('.momcode-square-separate3').css('font-size', elem.value*2.5 + 'px');
+        $('.momcode-square-separate4').css('font-size', elem.value*1.5 + 'px');
+        $('.momcode-square-separate5').css('font-size', elem.value*2.2 + 'px');
+        $('.momcode-square-separate6').css('font-size', elem.value*4.2 + 'px');
+        $('.momcode-circle-separate').css('font-size', elem.value + 'px');
         $('.momcode-circle-separate2').css('font-size', elem.value*1.5 + 'px');
+        $('.momcode-circle-separate3').css('font-size', elem.value*2.5 + 'px');
+        $('.momcode-circle-separate4').css('font-size', elem.value*1.5 + 'px');
+        $('.momcode-circle-separate5').css('font-size', elem.value*2.2 + 'px');
+        $('.momcode-circle-separate6').css('font-size', elem.value*4.2 + 'px');
         fontSizeDisplay.innerHTML = (elem.value + 'px');
         break;
     }
@@ -330,12 +356,18 @@ function encodeUserInput() {
   momCodeSqare4.innerHTML = symbolsInHtml.join('');
   momCodeSqare5.innerHTML = symbolsInHtml.join('');
   momCodeSqare6.innerHTML = symbolsInHtml.join('');
+  momCodeSqare7.innerHTML = symbolsInHtml.join('');
+  momCodeSqare8.innerHTML = symbolsInHtml.join('');
+  momCodeSqare9.innerHTML = symbolsInHtml.join('');
   momCodeCircle.innerHTML = symbolsInHtml.join('');
   momCodeCircle2.innerHTML = symbolsInHtml.join('');
   momCodeCircle3.innerHTML = symbolsInHtml.join('');
   momCodeCircle4.innerHTML = symbolsInHtml.join('');
   momCodeCircle5.innerHTML = symbolsInHtml.join('');
   momCodeCircle6.innerHTML = symbolsInHtml.join('');
+  momCodeCircle7.innerHTML = symbolsInHtml.join('');
+  momCodeCircle8.innerHTML = symbolsInHtml.join('');
+  momCodeCircle9.innerHTML = symbolsInHtml.join('');
   momCodeSqareInjected.innerHTML = symbolsInHtml.join('');
   qr.makeCode(inputStr);
 }
