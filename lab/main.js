@@ -46,6 +46,7 @@ const momCodeCircle8 = document.querySelector('.momcode-circle-separate8');
 const momCodeCircle9 = document.querySelector('.momcode-circle-separate9');
 
 const momCodeSqareInjected = document.querySelector('.momcode-square-injected');
+const qrMomCodeBorders = document.querySelectorAll('.momcode-border');
 
 // load hexlists from files
 for (const hexListName of HEXLIST_NAMES) {
@@ -243,6 +244,7 @@ function dynamicDisplayChange(elem, target, id) {
         $('.momcode-circle-separate4').css('font-size', elem.value*1.5 + 'px');
         $('.momcode-circle-separate5').css('font-size', elem.value*2.2 + 'px');
         $('.momcode-circle-separate6').css('font-size', elem.value*4.2 + 'px');
+        $('.version-b').css('font-size', elem.value + 'px');
         fontSizeDisplay.innerHTML = (elem.value + 'px');
         break;
     }
@@ -369,10 +371,19 @@ function encodeUserInput() {
   momCodeCircle8.innerHTML = symbolsInHtml.join('');
   momCodeCircle9.innerHTML = symbolsInHtml.join('');
   momCodeSqareInjected.innerHTML = symbolsInHtml.join('');
-  qr.makeCode(inputStr);
+
+  setQrBordersWithMomCode(symbolsInHtml, 3);
+  qrs.forEach(qr => qr.makeCode(inputStr));
 }
 
-
+function setQrBordersWithMomCode(symbols, ipb = 3) {
+  symbols = symbols || encodeHexString(inputStr.toLowerCase()).symbolsInHtml;
+  const elArr = [...qrMomCodeBorders];
+  elArr[0].innerHTML = symbols.slice(0, ipb).join("");
+  elArr[1].innerHTML = symbols.slice(ipb, ipb * 2).join("");
+  elArr[2].innerHTML = symbols.slice(ipb * 2, ipb * 3).join("");
+  elArr[3].innerHTML = symbols.slice(ipb * 3, ipb * 4).join("");
+}
 
 
 // add hexlist from array to hexlist storage and to <select>

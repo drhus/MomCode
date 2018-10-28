@@ -766,10 +766,75 @@
                       <div class="row">
                         <div class="col-12">
                           <div class="graphic-container w-100 card">
-                            <div id="qrcode-square">
+                            <div class="qrcode-square">
                               <div class="momCodeOut qrcode-mom momcode-square momcode-square-injected stretch-4"></div>
                             </div>
-                            <div class="canvas-overlay" onclick="saveQRSquare()" id="download">
+                            <div class="canvas-overlay" onclick="saveQRSquare('.qrcode-square')" id="download">
+                              <span>Download image</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" role="tab" id="headingFour">
+                <a data-toggle="collapse" data-parent="#accordionMomTests" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <h5 class="mb-0">
+                    QR-Momcode :: Test Model B <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <div id="collapseThree" class="collapse" aria-labelledby="headingFour" data-parent="#accordionMomTests">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-4 card card-body bg-light">
+                      <form>
+                        <div class="row">
+                          <div class="col-sm-12 injection-controls">
+                            <div class="row">
+                              <div class="col-12 small">
+                                <label>Border width</label>
+                                <input type="range" id="beta-bw-slider" class="custom-range" min="20" max="200" value="60" step="1" />
+                              </div>
+                              <div class="col-12 small">
+                                <label>Stretch icons</label>
+                                <input type="range" id="beta-icons-stretch-slider" class="custom-range" min="3" max="20" value="3" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Background color:</label>
+                                <input type="color" id="beta-bg-color-input" class="custom-range" value="#ffffff" />
+                              </div>
+                              <div class="col-6 small">
+                                <label>Background opacity</label>
+                                <input type="range" id="beta-bg-opactiy-slider" class="custom-range" min="0" max="0.9" value="0" step="0.1" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+
+                    </div>
+                    <div class="mx-auto text-center">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="graphic-container w-100 card">
+                            <div class="version-b">
+                              <div class="qrcode-square">
+                                <div class="momcode-border h-border momcode-border-top"></div>
+                                <div class="momcode-border v-border momcode-border-right"></div>
+                                <div class="momcode-border h-border momcode-border-bottom"></div>
+                                <div class="momcode-border v-border momcode-border-left"></div>
+                              </div>
+                            </div>
+                            <div class="canvas-overlay" onclick="saveQRSquare('.version-b')" id="download">
                               <span>Download image</span>
                             </div>
                           </div>

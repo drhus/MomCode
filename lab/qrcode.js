@@ -1,4 +1,4 @@
-const qrCodeEl = document.querySelector('#qrcode-square');
+const qrCodeEls = document.getElementsByClassName('qrcode-square');
 const qrIdenticonEl = document.querySelector('#identicon-square');
 const qrIdenticonEl2 = document.querySelector('#identicon-square2');
 const qrIdenticonEl3 = document.querySelector('#identicon-square3');
@@ -29,14 +29,18 @@ const hSlider = document.querySelector('#h-slider');
 const strokeColor = document.querySelector('#icon-stroke-color');
 const bgColor = document.querySelector('#bg-color-input');
 
+const betaBorderWidthSlider = document.querySelector('#beta-bw-slider');
+const betaIconStretchSlider = document.querySelector('#beta-icons-stretch-slider');
+const betaBgColor = document.querySelector('#beta-bg-color-input');
+const betaBgOpacity = document.querySelector('#beta-bg-opactiy-slider');
+
 // const [ stretchSlider, strokeWidth, bgOpacity, hPosSlider, vPosSlider, wSlider, hSlider, strokeColor, bgColor ] = document.querySelector('.injection-controls').getElementsByTagName("input");
 
-const qr = new QRCode(qrCodeEl, {
+const qrs = [...qrCodeEls].map(el => new QRCode(el, {
   width: 500,
   height: 500,
   correctLevel : QRCode.CorrectLevel.H
-});
-
+}));
 
 stretchSlider.onchange = event => {
   momCodeSqareInjected.classList.remove("stretch-0", "stretch-1", "stretch-2", "stretch-3", "stretch-4", "stretch-5", "stretch-6");
@@ -83,8 +87,29 @@ bgColor.onchange = event => {
   momCodeSqareInjected.style.backgroundColor = newColor;
 }
 
-function saveQRSquare() {
-  html2canvas(qrCodeEl, {
+betaBorderWidthSlider.onchange = event => {
+  $('.h-border').css('height', event.target.value + 'px').css('width', 250 + +event.target.value  + 'px');
+  $('.v-border').css('width', event.target.value + 'px').css('height', 250 + +event.target.value + 'px');
+  $('.version-b').css('width', 250 + 2*event.target.value + 'px').css('height', 250 + 2*event.target.value + 'px');
+}
+
+betaIconStretchSlider.onchange = event => {
+  setQrBordersWithMomCode(null, event.target.value)
+}
+
+betaBgOpacity.onchange = event => {
+  const currentColor = $('.momcode-border').css('backgroundColor') || 'rgba(255,255,255,0.7)';
+  $('.momcode-border').css('backgroundColor', currentColor.replace(/[\d\.]+\)/, `${event.target.value})`));
+}
+
+betaBgColor.onchange = event => {
+  const currentColor = $('.momcode-border').css('backgroundColor') || 'rgba(255,255,255,0.7)';
+  $('.momcode-border').css('backgroundColor', hexToRgba(event.target.value, currentColor.match(/[\d\.]+\)/)));
+}
+
+function saveQRSquare(selector) {
+  const el = document.querySelector(selector);
+  html2canvas(el, {
     scale: 3,
     logging: true
   })
