@@ -127,7 +127,7 @@ tbody:not(.empty) td:hover {
 }
 
 .momcode-border.momcode-border-right {
-  height: 300px;
+  height: 250px;
   width: 50px;
   left: 100%;
   bottom: 0;
@@ -135,7 +135,7 @@ tbody:not(.empty) td:hover {
 }
 
 .momcode-border.momcode-border-left {
-  height: 300px;
+  height: 2500px;
   width: 50px;
   right: 100%;
   top: 0;
