@@ -155,6 +155,7 @@ hexListSelect.addEventListener('change', () => processHexListChange());
 function processHexListChange(forceSet) {
   hexList = hexLists[forceSet || hexListSelect.value];
   showHexList();
+  buildKeyboard();
 
   document.querySelectorAll('fieldset').forEach(fs => fs.disabled = false);
 

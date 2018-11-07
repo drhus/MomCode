@@ -277,6 +277,46 @@ tbody:not(.empty) td:hover {
   cursor: pointer;
 }
 
+.flex-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#keyboard-v1 {
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#keyboard-v1 > .keyboard-key {
+  flex: 0 0 40px;
+  height: 40px;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px #cccccc;
+  transition: 0.3s;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#keyboard-v1 > .keyboard-key:hover {
+  box-shadow: 0 0 5px #aaaaaa;
+  background-color: #fafafa;
+}
+
+#keyboard-v1 > .keyboard-key > .keyboard-key-symbol {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: initial;
+  font-size: 80%;
+}
+
 datalist {
   display: flex;
   justify-content: space-between;
