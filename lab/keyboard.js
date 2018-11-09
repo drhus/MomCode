@@ -17,6 +17,16 @@ function buildKeyboard() {
     subEl.innerHTML = text;
     el.appendChild(subEl);
     el.innerHTML += content;
+    el.addEventListener("click", () => {
+      if (mode !== 'ASCII') {
+        inputStr = "";
+        mode = 'ASCII';
+        selectMode();
+      }
+      inputStr += text;
+      inputElem.value = inputStr;
+      encodeUserInput();
+    });
     return el;
   }
 
