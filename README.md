@@ -23,6 +23,8 @@ Momcode currently under development, for the time being you may play with the [T
 
 #### Identicon Momcode
 ![Identicon-Momcode](assets/img/example-momcode-identicon101.jpg "Identicon-Momcode example")
+Picto-Art identicon placeholder
 
 #### QR Momcode
 ![QR Code with Momcode](assets/img/example-momcode-qrcode100.jpg "QR Code with Momcode example")
+Picto-Art QR-code checksumming
