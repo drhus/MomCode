@@ -9,7 +9,7 @@ Momcode takes a large identifier _(UUID, public-key, wallet address or hexadecim
 * Easily transmittable via a voice channel,
 * and you can deterministically recover the original input string from it.
 
-It encodes a hexadecimal string, into 'Colorful Symbols', using 6 basic colors and a set of universally recognizable symbols such as triangles, squares, circles, stars, hearts, arrows. etc
+It encodes a hexadecimal string, into 'Colorful Symbols' pictographs, using 6 basic colors and a set of universally recognizable pictogram symbols such as triangles, squares, circles, stars, hearts, arrows. etc
 
 ## Progress
 Momcode currently under development, for the time being you may play with the [Test Lab](/lab/), making your own Dictionary Encoding and parameter configuration proposal toward a final version to be used as standard. here is an example of use cases:
