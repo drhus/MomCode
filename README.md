@@ -19,13 +19,13 @@ Momcode currently under development, for the time being you may play with the [T
 
 #### MomCode string wallet address
 
-![Momcode example](assets/img/example-momcode-string101.jpg "Momcode example")
+[![Momcode example](assets/img/example-momcode-string101.jpg "Momcode example")](https://momcode.io/lab/?input=0x88a2eff68c4077946c3be29339fd3d3bd632985b)
 *Picto-art wallet address placeholder*
 
 #### Identicon Momcode
-![Identicon-Momcode](assets/img/example-momcode-identicon101.jpg "Identicon-Momcode example")
+[![Identicon-Momcode](assets/img/example-momcode-identicon101.jpg "Identicon-Momcode example")](https://momcode.io/lab/?input=0x88a2eff68c4077946c3be29339fd3d3bd632985b)
 *Picto-Art identicon placeholder*
 
 #### QR Momcode
-![QR Code with Momcode](assets/img/example-momcode-qrcode100.jpg "QR Code with Momcode example")
+[![QR Code with Momcode](assets/img/example-momcode-qrcode100.jpg "QR Code with Momcode example")](https://momcode.io/lab/?input=0x88a2eff68c4077946c3be29339fd3d3bd632985b)
 *Picto-Art QR-code checksumming*
