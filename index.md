@@ -31,13 +31,8 @@ Momcode currently under development, for the time being you may play with the [T
 *Picto-Art QR-code checksumming*
 
 
-
 ## Contributors
-<!-- Contributors table START -->
-| [![Husam ABBOUD](https://avatars3.githubusercontent.com/u/712919?s=100&v=4)<br /><sub>Husam ABBOUD</sub>](https://github.com/drhus)<br />🤔 💻 🎨| [![Alexandr Tovmach](https://avatars2.githubusercontent.com/u/28801003?s=100&v=4)<br /><sub>Alexandr Tovmach</sub>](https://github.com/alexandrtovmach)<br /> 💻 💬 🎨 | [![Dima Permin](https://avatars.githubusercontent.com/)<br /><sub>Dima Permin</sub>](https://github.com/#)<br />💻 💬 | [![Daniel Vieira](https://avatars1.githubusercontent.com/u/6597418?s=100&v=4)<br /><sub>Daniel Vieira</sub>](https://github.com/kaede28)<br />💻 💬 |
-| :---: | :---: | :---: | :---: |
-<!-- Contributors table END -->
-
+Thanks goes to these wonderful people [Alexandr Tovmach](https://github.com/alexandrtovmach), [Dima Permin](https://github.com/#), and [Daniel Vieira](https://github.com/kaede28) without them this project wouldn't be possible.
 
 *This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
 Contributions of any kind welcome!*
