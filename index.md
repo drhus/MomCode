@@ -32,7 +32,4 @@ Momcode currently under development, for the time being you may play with the [T
 
 
 ## Contributors
-Thanks goes to these wonderful people [Alexandr Tovmach](https://github.com/alexandrtovmach), [Dima Permin](https://github.com/#), and [Daniel Vieira](https://github.com/kaede28) without them this project wouldn't be possible.
-
-*This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
-Contributions of any kind welcome!*
+[Husam ABBOUD](https://github.com/drhus), [Alexandr Tovmach](https://github.com/alexandrtovmach), [Dima Permin](https://github.com/#), and [Daniel Vieira](https://github.com/kaede28)
