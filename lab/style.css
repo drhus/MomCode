@@ -292,10 +292,10 @@ tbody:not(.empty) td:hover {
   justify-content: space-between;
 }
 
-#keyboard-v1 > .keyboard-key {
+#keyboard-v1 td > .keyboard-key {
   flex: 0 0 40px;
   height: 40px;
-  margin: 10px;
+  margin: 2px;
   background-color: #ffffff;
   box-shadow: 0 0 5px #cccccc;
   transition: 0.3s;
@@ -304,12 +304,22 @@ tbody:not(.empty) td:hover {
   border-radius: 5px;
 }
 
-#keyboard-v1 > .keyboard-key:hover {
+#keyboard-v1 tr > td {
+  width: 60px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#keyboard-v1 tr:first-child, tr > td:first-child  {
+  font-weight: 900;
+}
+
+#keyboard-v1 td > .keyboard-key:hover {
   box-shadow: 0 0 5px #aaaaaa;
   background-color: #fafafa;
 }
 
-#keyboard-v1 > .keyboard-key > .keyboard-key-symbol {
+#keyboard-v1 td > .keyboard-key > .keyboard-key-symbol {
   position: absolute;
   top: 2px;
   right: 2px;

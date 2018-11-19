@@ -6,7 +6,7 @@ asciCheckbox.addEventListener("change", (event) => buildKeyboard(event.target.ch
 function buildKeyboard(withASCI) {
   const symbols = hexList.data;
   keyboard.innerHTML = null;
-  const hexIdxLis = {"0": "0","1": "1","2": "2","3": "3","4": "4","5": "5","6": "6","7": "7","8": "8","9": "9","a": "a","b": "b","c": "c","d": "d","e": "e","f": "f"};
+  const hexIdxLis = {"0": "0", "1": "1","2": "2","3": "3","4": "4","5": "5","6": "6","7": "7","8": "8","9": "9","a": "a","b": "b","c": "c","d": "d","e": "e","f": "f"};
   const tableData = Object.keys(symbols).reduce((prev, el) => {
     const text = fromHex(el);
     prev[el[0]] = {
@@ -40,8 +40,8 @@ function buildKeyboard(withASCI) {
   function tableCreate(parent, tableData) {
     const table = document.createElement('table');
     table.style.width = '100%';
-    table.setAttribute('border', '1');
-    Object.keys(tableData).forEach(key => {
+    table.setAttribute('border', '0');
+    Object.keys(tableData).sort().forEach(key => {
       const row = tableData[key];
       const rowEl = document.createElement('tr');
       const colEl = document.createElement('td');
@@ -49,8 +49,9 @@ function buildKeyboard(withASCI) {
       rowEl.appendChild(colEl);
       Object.keys(row).forEach(key => {
         const col = row[key];
-        colEl.appendChild(col);
-        rowEl.appendChild(colEl);
+        const colChildEl = document.createElement('td');
+        typeof col === "string"? colChildEl.innerHTML = col: colChildEl.appendChild(col);
+        rowEl.appendChild(colChildEl);
       })
       table.appendChild(rowEl);
     })
@@ -77,6 +78,8 @@ function buildKeyboard(withASCI) {
     return str;
   }
 
+  console.log(tableData);
+  tableData["*"] = hexIdxLis;
   tableCreate(keyboard, tableData);
 }
 
