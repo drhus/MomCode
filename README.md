@@ -1,5 +1,9 @@
-# MomCode
+# MomCode <!-- Make Wallete Address Memeorable -->
 _Deterministic Human-friendly Visualization for Large Identifier_
+
+> Visually pleasing and easily describable distinct picto-art, generated uniquely for any input data.
+
+Using the power of an inherent self-evolving neural capability of humans with pattern recognition and visual memory, to bring wallet addresses to life. 
 
 Momcode takes a large identifier _(UUID, public-key, wallet address or hexadecimal hash)_ and generates a human friendly representation in visual form.  
 * Distinguishable,
