@@ -11,12 +11,12 @@ function buildKeyboard(withASCI) {
     const text = fromHex(el);
     prev[el[0]] = {
       ...prev[el[0]],
-      [el[1]]: buildOneKey(text, symbols[el].color, symbols[el].char)
+      [el[1]]: buildOneKey(text, el, symbols[el].color, symbols[el].char)
     }
     return prev;
   }, {});
 
-  function buildOneKey(text, classNames, content) {
+  function buildOneKey(text, hex, classNames, content) {
     const el = document.createElement("div");
     const subEl = document.createElement("div");
     subEl.className = `keyboard-key-symbol`;
@@ -25,12 +25,11 @@ function buildKeyboard(withASCI) {
     withASCI && el.appendChild(subEl);
     el.innerHTML += content;
     el.addEventListener("click", () => {
-      if (mode !== 'ASCII') {
-        inputStr = "";
-        mode = 'ASCII';
-        selectMode();
+      if (mode === 'ASCII') {
+        inputStr += text;
+      } else if (mode === 'HEX') {
+        inputStr += hex;
       }
-      inputStr += text;
       inputElem.value = inputStr;
       encodeUserInput();
     });
