@@ -19,6 +19,7 @@ const HEXLIST_NAMES = [
   '4Fun - IdentiAddress II',
   '4Fun - IdentiAddress III',
   '4Fun - Emoji-Random',
+  'ShapeAddress FA Colorblind',
 ];
 
 const HEXLIST_ADDITIONAL_PROPS = ['name', 'author', 'comment', 'number'];
